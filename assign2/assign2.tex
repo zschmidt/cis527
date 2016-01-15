@@ -1,0 +1,106 @@
+\documentclass{article}
+
+%amsmath is used to define the "align" section
+\usepackage{amsmath}
+
+%mdwlist makes more compact lists
+\usepackage{mdwlist}
+
+%latexsym is needed for \Box
+\usepackage{latexsym}
+
+%I use geometry, because I'm a nut about margins
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=10mm,
+ bottom=20mm,
+ }
+
+\begin{document}
+
+%I hate the stock pound sign... so I fiddle with it here
+\title{Assignment \raisebox{.22ex}{\large\#}1 \\
+	CIS 427/527}
+\author{Group 2}
+
+\maketitle
+
+%----------------------BEGIN PROBLEM 1----------------------
+
+\section*{1}
+There are three suspects for a murder: Adams, Brown, and Clark. Adams says: “I didn’t do it. The victim was an old acquaintance of Brown’s. But Clark hated him.” Brown states ”I didn’t do it. I didn’t even know the guy. Besides I was out of town all that week.” Clark says “ I didn’t do it. I saw both Adams and Brown downtown with the victim that day; one of them must have done it.” Assume that the two innocent men are telling the truth, but that the guilty man might not be. Who did it?
+
+\section*{Solution}
+Since two of the men are telling the truth, we have a proposition of the form $P = (A \land B) \lor (A \land C) \lor (B \land C)$. 
+\begin{itemize*}
+\item If Adams is telling the truth, then Brown is lying $(A\implies \lnot B)$.
+\item If Brown is telling the truth, then both Adams and Clark are lying $(B\implies (\lnot A \land \lnot C))$.
+\item If Clark is telling the truth, then Brown is lying $(C\implies \lnot B)$.
+\end{itemize*}
+
+\noindent If Brown were telling the truth, then $P$ could never be satisfied, therefore Brown is lying, which makes him the killer.
+
+%----------------------BEGIN PROBLEM 2----------------------
+
+\section*{2}
+\begin{description*}
+	\item[2.] Show that $(( \to \notin PROP$
+\end{description*}
+
+\noindent Suppose $(( \to \in X$ and $X$ satisfies (i), (ii), (iii) of Definition 2.1.2. We claim that $Y = X\text{\textbackslash} \{ ((\to \}$ also satisfies (i), (ii), and (iii). 
+\begin{description*}
+\item[\hspace{2em}(i)] $\bot, p_i \in Y$, 
+\item[\hspace{2em}(ii)] $\varphi , \psi \in Y$ and $(\varphi \Box \psi) \neq ((\to $, it is clear that $(\varphi \Box \psi) \in Y $
+\item[\hspace{2em}(iii)]
+\end{description*}
+Therefore $X$ is not the smallest set satisfying (i), (ii), and (iii), so $((\to $ cannot belong to $PROP$.
+
+\begin{description*}
+	\item[7. (a)] Determine the trees of the proposition in Exercise 1
+	\item[\hspace{1.2em}(b)] Determine the propositions with the following trees
+\end{description*}
+
+\begin{description*}
+	\item[9.] Show that a proposition with $n$ connectives has at most $2n + 1$ subformulas
+\end{description*}
+
+%----------------------BEGIN PROBLEM 3----------------------
+
+\section*{3}
+
+
+%----------------------BEGIN PROBLEM 4----------------------
+
+\section*{4}
+
+
+
+%----------------------BEGIN PROBLEM 5----------------------
+
+\section*{5}
+
+
+%----------------------BEGIN PROBLEM 6----------------------
+
+\section*{6}
+
+
+%----------------------BEGIN PROBLEM 7----------------------
+
+\section*{7}
+
+%----------------------BEGIN PROBLEM 8----------------------
+
+\section*{8}
+
+%----------------------BEGIN PROBLEM 9----------------------
+
+\section*{9}
+
+
+
+\end{document}

@@ -1,0 +1,188 @@
+\documentclass{article}
+
+%amsmath is used to define the "align" section
+\usepackage{amsmath}
+
+%I use geometry, because I'm a nut about margins
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=10mm,
+ bottom=20mm,
+ }
+
+\begin{document}
+
+%I hate the stock pound sign... so I fiddle with it here
+\title{Assignment \raisebox{.22ex}{\large\#}1 \\
+	CIS 427/527}
+\author{Group 2}
+
+\maketitle
+
+%----------------------BEGIN PROBLEM 1----------------------
+
+\section*{1}
+Prove that for all natural numbers $n,\ n\leq 2^n$. 
+
+\section*{Solution}
+
+\begin{description}
+\item[Base Case] Let $n=0$. Then $0 \leq 2^0 = 1$ holds.  
+\item[Inductive Case] Inductive Hypothesis: $\forall n \in N, n \leq 2^n$.
+\end{description}
+\hspace{8em}Prove $n+1\leq 2^{n+1}$
+\begin{align*}
+n &\leq 2^n \\
+2 n &\leq 2\cdot 2^n = 2^{n+1} \\
+n + 1 &\leq n + n = 2n \leq 2^{n+1} \\
+n + 1 &\leq 2^{n+1} \\
+\end{align*}
+Therefore, since P($n$)$\implies$ P($n+1$), $n\leq 2^n\ \forall n \in N$.
+
+%----------------------BEGIN PROBLEM 2----------------------
+
+\section*{2}
+Consider the following form of induction.\\
+\textit{strong induction:} To prove P($n$) is true for every natural number $n$, prove that for any natural number $m$, if P($i$) is true for all $i<m$, then P($m$) must also be true.\\\\
+Prove using strong induction that the property P($n$) defined as\\\\
+\hspace*{2em}if $n>1$ then there exist prime numbers $p_1,\cdot \cdot \cdot , p_k$ with $n = p_1 * p_2 * \cdot \cdot \cdot * p_k$.\\\\
+holds for all $n$.
+
+\section*{Solution}
+
+\begin{description}
+\item[Base Case] Prove P(2). This is true since 2 can be written as a product of primes, namely itself.
+\item[Inductive Case] Prove P(2) $\land \ ...\ \land$ P($n$) $\implies$ P($n+1$) $\forall n > 1$. The inductive hypothesis states that $\forall m \in N,\ 2 \leq m \leq n,\ m$ can be written as the product of primes.
+	\begin{itemize}
+	\item $n+1$ is a prime, then like P(2) $n+1$ can be written as a product of itself
+	\item $n+1$ is not a prime, then $\exists \ a, b$ such that $2 \leq a,b < n+1$ and $n+1 = a\cdot b$. By the inductive hypothesis, both $a,b$ can be written as the product of primes. Therefore, $n+1$ can be written as the product of primes.
+	\end{itemize}
+\end{description}
+Hence, since P(2) $\land \ ...\ \land$ P($n$) $\implies$ P($n+1$), the property holds $\forall n \in N$.
+
+\newpage
+%----------------------BEGIN PROBLEM 3----------------------
+
+\section*{3}
+Prove that induction implies strong induction and vice-versa.
+
+
+\section*{Solution}
+If P(0) $\land \ ...\ \land$ P($n$) $\implies$ P($n+1$), then $\forall n \in N$, P($n$) $\implies$ P($n+1$) is certainly true (the first simply being the second fully written out). Thus, induction strong implies induction.\\
+To show that induction implies strong induction, let $Q(n)$ be the property ``P holds from 0 to $n$'', then the induction axiom for $Q$ is:
+\[
+Q(0) \land [Q(n) \implies Q(n+1)] \implies \forall n\ Q(n)
+\]
+If we substitute the definition of $Q$ into the above, we get:
+\[ 
+P(0) \land [P(0)\land \ ...\ \land P(n) \implies P(0)\land \ ...\ \land P(n) \land P(n+1)] \implies [\forall n\ (P(0)\land \ ...\ \land P(n))]
+\]
+Which is logically equivalent to
+\[ 
+P(0) \land [P(0)\land \ ...\ \land P(n)] \implies P(n+1)
+\]
+Which is the strong induction axion. Thus, induction implies strong induction.\\\\
+Therefore, induction and strong induction are equivalent.
+
+%----------------------BEGIN PROBLEM 4----------------------
+
+\section*{4}
+Let us define a tree as follows:
+
+\begin{itemize}
+\item leaf is a tree
+\item if t1 and t2 are trees then node (t1,t2) is a tree
+\item nothing else is a tree
+\end{itemize}
+
+\noindent Define by recursion the following function rank (height, depth):
+
+\begin{verbatim}
+rank(leaf) = 1
+rank(node(t1,t2)) = max(rank(t1),rank(t2))+1
+\end{verbatim}
+
+\noindent Using induction on the rank, prove that the number of leaves of any binary tree is at most one plus the number of internal nodes.\\
+
+\noindent Prove the same by using structural induction.
+
+\section*{Solution}
+\textsc{Induction}
+\begin{description}
+\item[Base Case] A tree $t$ with one leaf has no internal nodes, therefore $l(t) \leq 1 + n(t) \to 1 \leq 1 + 0$.
+\item[Inductive Case] Inductive Hypothesis: A tree with $i$ internal nodes and $l$ leaves satisfies $l \leq 1 + i$.\\
+Assume trees $t,m$ (with \texttt{rank}$(t) = n$, \texttt{rank}$(m) \leq n$) has the property above. If we create a new tree $t'$ from $t$ and $m$ we have: 
+\begin{align*}
+\texttt{rank}(t') &\leq \textsc{Max}(\texttt{rank}(t), \texttt{rank}(m)) + 1\\
+\texttt{rank}(t') &\leq \textsc{Max}(n, m) + 1\\
+\texttt{rank}(t') &\leq n + 1\\
+\end{align*}
+Since \texttt{rank}$(t)$, \texttt{rank}$(m) < \texttt{rank}(t')$, the above property holds for $t'$ (from strong induction). Therefore, the inductive hypothesis holds $\forall n \in N$.
+\end{description}
+
+\newpage
+
+\textsc{Structural Induction}
+\begin{description}
+\item[Base Case] A tree $t$ with one leaf has no internal nodes, therefore the hypothesis holds.
+\item[Inductive Case] Let $l(t),n(t)$ denote the number of internal nodes and leaves in a tree $t$, respectively.\\
+Inductive Hypothesis: $\forall t_1, t_2 \in T, l(t_1) \leq n(t_1) + 1$
+\end{description}
+\hspace{17em} $l(t_2) \leq n(t_2) + 1$\\\\
+Prove: $l(\text{node}(t_1, t_2)) \leq n(\text{node}(t_1, t_2)) + 1$
+\begin{align*}
+l(\text{node}(t_1, t_2)) &= l(t_1) + l(t_2) \\
+n(\text{node}(t_1, t_2)) &= n(t_1) + n(t_2) + 1\\
+\text{By inductive hypothesis: }&\\
+l(t_1) + l(t_2) & \leq n(t_1) + n(t_2) + 1\\
+l(\text{node}(t_1, t_2)) & \leq n(\text{node}(t_1, t_2)) + 1\\
+\end{align*}
+Therefore, since $P(n) \implies P(n+1)$, the inductive hypothesis holds $\forall t \in T$.
+
+
+%----------------------BEGIN PROBLEM 5----------------------
+
+\section*{5}
+Given the following inductive definition of an expression:
+
+\begin{itemize}
+\item 0 is an expression
+\item 2 is an expression
+\item if e1 and e2 are expressions then e1+e2 and e1*e2 are expressions
+\item nothing else is an expression
+\end{itemize}
+
+\noindent where + is interpreted as addition and * as multiplication. Prove by structural induction that the value of every expression produced by this grammar is an even number.
+
+\section*{Solution}
+The base case has four cases
+\begin{description}
+\item[Base Case] Both expressions 0 and 2 are even numbers
+\item[Recursive Case] This will be a proof by cases
+	\begin{description}
+	\item[e1+e2] Adding 0 or 2 to either 0 or 2 produces an even number, in addition to a valid expression. Thus, e1+e2 will always produce an even number.
+	\item[e1*e2] Similarly, multiplying any expression by 0 or 2 will produce an even number, therefore e1*e2 will always produce an even number.
+	\end{description}
+\end{description}
+
+%----------------------BEGIN PROBLEM 6----------------------
+
+\section*{6}
+Find the flaw with the following proof that $a^n = 1$ for all nonnegative integers $n$, whenever $a$ is a nonzero real number.
+
+\begin{itemize}
+\item BASE STEP: $a^0 = 1$ is true by the deinition of $a^0$.
+\item INDUCTIVE STEP: Assume that $a^k = 1$ for all nonnegative integers $k$ with $k\leq n$. Then note:
+\[ a^{n+1} = \frac{a^n * a^n}{a^{n-1}} = \frac{1*1}{1} = 1\]
+\end{itemize}
+
+\section*{Solution}
+The error is in the inductive step, namely the expression $a^{n-1}$ which appears in the denominator. If $n=0$ (thus we are trying to show that $P(0) \to P(1)$), we have a negative integer $n$ for the exponent, which goes against the definition of problem.
+
+
+
+\end{document}
