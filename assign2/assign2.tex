@@ -169,7 +169,25 @@ A conjunctive normal form is a tautology iff every clause is also a tautology.
 %----------------------BEGIN PROBLEM 9----------------------
 
 \section*{9}
+\begin{description*}
+  \item[$P\to Q$:] 
 
+  True when $P$ is false; false when $P$ is true and $Q$ is false.
+
+  \item[$P \lor Q \to P \land Q$:]
+
+  True when $P\iff Q$; false otherwise.
+
+  \item[$\lnot (P \lor Q \lor R)$:]
+
+  True when $P,Q,R$ are all false; false when any $P,Q,R$ are true.
+
+  \item[$\lnot (P \land Q) \land \lnot (Q \lor R) \land (P\lor R)$:]
+
+  True when $P$ is true, $Q$ is false, $R$ is false; false when $P$ is false and $R$ is false.
+
+
+\end{description*}
 
 
 \end{document}
