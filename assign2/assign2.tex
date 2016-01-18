@@ -87,6 +87,19 @@ $\lnot ((\lnot p_1) \to (\lnot p_1))$
 
 \begin{description*}
 	\item[9.] Show that a proposition with $n$ connectives has at most $2n + 1$ subformulas
+
+  \begin{description*}
+  \item[Base Case] A proposition $P$ with zero connectives has $\leq 2(0) + 1 = 1$ subforumla(s).
+  \item[Inductive Case] Inductive Hypothesis: A proposition $\varphi$ with $n$ connectives has at most $2n + 1$ subformulas, where $s(\varphi)$ gives the number of subformulas.\\
+  Assume propositions $p,q$ (where $s(p) = n$ and $s(q) = m \leq n$ connectives) have the property above. If we create a new proposition $r$ from $p$ and $q$ we have: 
+  \begin{align*}
+  s(r) &= s(p) + s(q) + 1\\
+  s(r) &= n + m + 1 \\
+  s(r) &\leq 2n + 1\\
+  \end{align*}
+  Since the desired property holds for $r$ the inductive hypothesis holds $\forall n \in N$.
+  \end{description*}
+
 \end{description*}
 
 %----------------------BEGIN PROBLEM 3----------------------
