@@ -23,7 +23,7 @@
 \begin{document}
 
 %I hate the stock pound sign... so I fiddle with it here
-\title{Assignment \raisebox{.22ex}{\large\#}1 \\
+\title{Assignment \raisebox{.22ex}{\large\#}2 \\
 	CIS 427/527}
 \author{Group 2}
 
@@ -67,7 +67,48 @@ Therefore $X$ is not the smallest set satisfying (i), (ii), and (iii), so $((\to
 \begin{description*}
 	\item[9.] Show that a proposition with $n$ connectives has at most $2n + 1$ subformulas
 \end{description*}
+Using Theorem 2.1.3 (Induction Principle for $PROP$) \\ \\
+Let $A(\varphi)$ := $\varphi$ has $n$ connectives and at most $2n + 1$ subformulas.
 
+\begin{description*}
+\item[\hspace{2em}(i)] $A(\bot)$ and $A(p_i)$ is true $\forall p_i \in PROP$ 
+\end{description*}
+\hspace{5em}$\bot$ is atomic, and is itself a connective. $SUB(\bot)=\{\bot\}$, so $|\{\bot\}| = 1$. $1 \leq 2 \cdot 0 + 1$, thus $A(\bot)$.
+\\\\
+Let $p_i \in PROP$ for some $i \in N$. Since $p_i$ is atomic, $p_i$ has $0$ connectives, $SUB(p_i) = \{p_i\}$, and  $|\{p_i\}| = 1$.\\
+\begin{center}
+$ 1 \leq 2 \cdot 0 + 1$, thus $A(p_i)$.
+\end{center}
+
+\begin{description*}
+\item[\hspace{2em}(ii)] $A(\varphi) \wedge A(\psi) \implies A((\varphi \Box \psi))$
+\end{description*}
+
+Suppose $\varphi,\psi \in PROP$, with $n,m$ connectives resp., and $A(\varphi),A(\psi)$ \\
+$|SUB(\varphi)| \leq 2n+1$ \hspace{2em} $|SUB(\psi)| \leq 2M+1$ \\
+$SUB(\varphi \Box \psi) = SUB(\varphi) \cup SUB(\psi) \cup \{\varphi \box \psi\}$ (definition of SUB)\\
+\begin{align*}
+|SUB(\varphi \Box \psi)| &\leq |SUB(\varphi)| + |SUB(\psi)| + 1 \\
+|SUB(\varphi \Box \psi)| &\leq 2n + 1 + 2m + 1 + 1 \\
+|SUB(\varphi \Box \psi)| &\leq 2(n+m+1)+1
+\end{align*}
+$(\varphi \Box \psi)$ has $n + m + 1$ connectives, and at most $2(n+m+1)$ subformulas, thus $A(\varphi), A(\psi) \implies A((\varphi \Box \psi))$.
+
+\begin{description*}
+\item[\hspace{2em}(iii)] $A(\varphi) \implies A((\lnot \varphi))$
+\end{description*}
+
+Suppose $\varphi \in PROP$, with $n$ connectives, and $A(\varphi)$, then $|SUB(\varphi)| \leq 2n+1$ \\
+
+\begin{align*}
+SUB((\lnot \varphi)) &= SUB(\varphi) \cup \{(\lnot \varphi)\} \\
+|SUB((\lnot \varphi))| &\leq |SUB(\varphi)| + |\{(\lnot \varphi)\} \\
+|SUB((\lnot \varphi))| &\leq 2n + 1 + 1 \\ 
+|SUB((\lnot \varphi))| &\leq 2(n+1) \\ 
+|SUB((\lnot \varphi))| &\leq 2(n+1) + 1\\ 
+\end{align*}
+$(\lnot \varphi)$ has n+1 connectives, and at most $2(n+1)+1$ subformulas, thus $A(\varphi) \implies A((\lnot \varphi))$.\\ \\
+From (i), (ii), (iii), and the induction principle for PROP, A proposition with $n$ connectives has at most $2n+1$ subformulas. 
 %----------------------BEGIN PROBLEM 3----------------------
 
 \section*{3}
