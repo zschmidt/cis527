@@ -12,6 +12,23 @@
 %latexsym is needed for \Box
 \usepackage{latexsym}
 
+%This section is needed for the valuation brackets
+\usepackage{tikz}
+\newcommand{\llbracket}{\
+  \begin{tikzpicture}[scale=0.09,baseline=.3em]
+  \draw (1.75,0) -- (0,0) -- (0,4) -- (1.75,4);
+  \draw (1,0) -- (1,4);
+  \end{tikzpicture}
+  \
+}
+\newcommand{\rrbracket}{\
+  \begin{tikzpicture}[scale=0.09,baseline=.3em]
+  \draw (0,4) -- (1.75,4) -- (1.75,0) -- (0,0);
+  \draw (.75,0) -- (.75,4);
+  \end{tikzpicture}
+  \
+}
+
 %This is me being a jerk about margins
 \usepackage{geometry}
  \geometry{
@@ -99,7 +116,7 @@ $\lnot ((\lnot p_1) \to (\lnot p_1))$
   \begin{align*}
   s(r) &= s(p) + s(q) + 1\\
   s(r) &= n + m + 1 \\
-  s(r) &\leq 2n + 1\\
+  s(r) &\leq 2n + 1
   \end{align*}
   Since the desired property holds for $r$ the inductive hypothesis holds $\forall n \in N$.
   \end{description*}
@@ -152,10 +169,16 @@ Is a tautology.
 \begin{description*}
   \item[(a)] $\varphi \models \varphi$
 
+  By definition of semantic entailment, $\varphi \models \varphi$ iff for all $v: \llbracket \varphi \rrbracket _v = 1 \implies \llbracket \varphi \rrbracket _v = 1$. Since $\llbracket \varphi \rrbracket _v = 1 \implies \llbracket \varphi \rrbracket _v = 1$ is a tautology, $\varphi \models \varphi$ holds.
+
 
   \item[(b)] $\varphi \models \psi$ and $\psi \models \sigma \implies \varphi \models \sigma$
 
+  By definition of semantic entailment, we have $\llbracket \varphi \rrbracket _v = 1\ \forall v \implies \llbracket \psi \rrbracket _v = 1$ and $\llbracket \psi \rrbracket _v = 1\ \forall v \implies \llbracket \sigma \rrbracket _v = 1$, by the transitive property, $\llbracket \varphi \rrbracket _v = 1\ \forall v \implies \llbracket \sigma \rrbracket _v = 1$.
+
   \item[(c)] $\models \varphi \to \psi \iff \varphi \models \psi$
+
+  Since $\models \varphi \to \psi$, we know that $\llbracket \psi \rrbracket _v = 1\ \forall v$ (because if $\llbracket \psi \rrbracket _v = 0$ for some $v$, then $\varphi \to \psi$ is not a tautology). Therefore, we can conclude that $\llbracket \varphi \rrbracket _v = 1 \to \llbracket \psi \rrbracket _v = 1$, since anytime $\llbracket \varphi \rrbracket _v = 1$, $\llbracket \psi \rrbracket _v = 1$.
 
 
 \end{description*}
