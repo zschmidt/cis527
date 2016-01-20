@@ -95,7 +95,7 @@ $\lnot ((\lnot p_1) \to (\lnot p_1))$
   \begin{description*}
   \item[Base Case] A proposition $P$ with zero connectives has $\leq 2(0) + 1 = 1$ subforumla(s).
   \item[Inductive Case] Inductive Hypothesis: A proposition $\varphi$ with $n$ connectives has at most $2n + 1$ subformulas, where $s(\varphi)$ gives the number of subformulas (Def 2.1.3).\\
-  Assume propositions $p,q$ with $n,m$ connectives resp., both of which have the property above. $s(p) \leq 2n+1$ and $s(q) \leq 2m+1$. Consider the proposition $r = (p \Box q)$. $r$ must have $n+m+1$ connectives. From the definition of s,
+  Assume propositions $p,q$ with $n,m \leq n$ connectives resp., both of which have the property above. $s(p) \leq 2n+1$ and $s(q) \leq 2m+1$. Consider the proposition $r = (p \Box q)$. $r$ must have $n+m+1$ connectives. From the definition of s,
   \begin{align*}
 	s(r) &= s(p) \cup s(q) \cup \{r\} \\
 	|s(r)| &\leq |s(p)| + |s(q)| + |\{r\}| \\
