@@ -1,15 +1,18 @@
-\documentclass{article}
+\documentclass[10pt]{article}
 
-%amsmath is used to define the "align" section
-\usepackage{amsmath}
+%these two are needed for the tree drawings
+\usepackage{graphicx,qtree}
 
-%mdwlist makes more compact lists
+%this package makes lists more compact
 \usepackage{mdwlist}
+
+%this is needed for \implies (and probably other stuff)
+\usepackage{amsmath}
 
 %latexsym is needed for \Box
 \usepackage{latexsym}
 
-%I use geometry, because I'm a nut about margins
+%This is me being a jerk about margins
 \usepackage{geometry}
  \geometry{
  a4paper,
@@ -32,9 +35,6 @@
 %----------------------BEGIN PROBLEM 1----------------------
 
 \section*{1}
-There are three suspects for a murder: Adams, Brown, and Clark. Adams says: “I didn’t do it. The victim was an old acquaintance of Brown’s. But Clark hated him.” Brown states ”I didn’t do it. I didn’t even know the guy. Besides I was out of town all that week.” Clark says “ I didn’t do it. I saw both Adams and Brown downtown with the victim that day; one of them must have done it.” Assume that the two innocent men are telling the truth, but that the guilty man might not be. Who did it?
-
-\section*{Solution}
 Since two of the men are telling the truth, we have a proposition of the form $P = (A \land B) \lor (A \land C) \lor (B \land C)$. 
 \begin{itemize*}
 \item If Adams is telling the truth, then Brown is lying $(A\implies \lnot B)$.
@@ -55,60 +55,58 @@ Since two of the men are telling the truth, we have a proposition of the form $P
 \begin{description*}
 \item[\hspace{2em}(i)] $\bot, p_i \in Y$, 
 \item[\hspace{2em}(ii)] $\varphi , \psi \in Y$ and $(\varphi \Box \psi) \neq ((\to $, it is clear that $(\varphi \Box \psi) \in Y $
-\item[\hspace{2em}(iii)]
+\item[\hspace{2em}(iii)] Similarly, $\varphi \in Y$ and $(\lnot \varphi ) \neq ((\to $, so $(\lnot \varphi ) \in Y $
 \end{description*}
 Therefore $X$ is not the smallest set satisfying (i), (ii), and (iii), so $((\to $ cannot belong to $PROP$.
 
 \begin{description*}
 	\item[7. (a)] Determine the trees of the proposition in Exercise 1
-	\item[\hspace{1.2em}(b)] Determine the propositions with the following trees
+
+
+$(\lnot p_2 \to (p_3 \lor (p_1 \leftrightarrow p_2))) \land \lnot p_3$
+
+\Tree [.$\land$ [.$\to$ [.$\lnot$ [.$p_2$ ]] [.$\lor$ [.$p_3$ ] [.$\leftrightarrow$ [.$p_1$ ] [.$p_2$ ]]]] [.$\lnot$ [.$p_3$ ]]]
+
+
+$(p_7 \to \lnot \bot ) \leftrightarrow ((p_4 \land \lnot p_2 ) \to p_1$
+
+\Tree [.$\leftrightarrow$ [.$\to$ [.$p_7$ ] [.$\lnot$ [.$\bot$ ]]] [.$\to$ [.$\land$ [.$p_4$ ] [.$\lnot$ [.$p_2$ ]]] [.$p_1$ ]]]
+
+
+$(((p_1 \to p_2) \to p_1) \to p_2 \to p_1$
+
+\Tree [.$\to$ [.$\to$ [.$\to$ [.$\to$ [.$p_1$ ] [.$p_2$ ]] [.$p_1$ ]] [.$p_2$ ]] [.$p_1$ ]]
+
+
+  \item[\hspace{1.2em}(b)] Determine the propositions with the trees given
+
+$\lnot \lnot \lnot \bot$ \\
+
+$(p_0 \to \bot) \to ((p_0 \leftrightarrow p_1) \land p_5)$ \\
+
+$\lnot ((\lnot p_1) \to (\lnot p_1))$
+
 \end{description*}
+
 
 \begin{description*}
 	\item[9.] Show that a proposition with $n$ connectives has at most $2n + 1$ subformulas
-\end{description*}
-Using Theorem 2.1.3 (Induction Principle for $PROP$) \\ \\
-Let $A(\varphi)$ := $\varphi$ has $n$ connectives and at most $2n + 1$ subformulas.
 
-\begin{description*}
-\item[\hspace{2em}(i)] $A(\bot)$ and $A(p_i)$ is true $\forall p_i \in PROP$ 
-\end{description*}
-\hspace{5em}$\bot$ is atomic, and is itself a connective. $SUB(\bot)=\{\bot\}$, so $|\{\bot\}| = 1$. $1 \leq 2 \cdot 0 + 1$, thus $A(\bot)$.
-\\\\
-Let $p_i \in PROP$ for some $i \in N$. Since $p_i$ is atomic, $p_i$ has $0$ connectives, $SUB(p_i) = \{p_i\}$, and  $|\{p_i\}| = 1$.\\
-\begin{center}
-$ 1 \leq 2 \cdot 0 + 1$, thus $A(p_i)$.
-\end{center}
+  \begin{description*}
+  \item[Base Case] A proposition $P$ with zero connectives has $\leq 2(0) + 1 = 1$ subforumla(s).
+  \item[Inductive Case] Inductive Hypothesis: A proposition $\varphi$ with $n$ connectives has at most $2n + 1$ subformulas, where $s(\varphi)$ gives the number of subformulas (Def 2.1.3).\\
+  Assume propositions $p,q$ with $n,m$ connectives resp., both of which have the property above. $s(p) \leq 2n+1$ and $s(q) \leq 2m+1$. Consider the proposition $r = (p \Box q)$. $r$ must have $n+m+1$ connectives. From the definition of s,
+  \begin{align*}
+	s(r) &= s(p) \cup s(q) \cup \{r\} \\
+	|s(r)| &\leq |s(p)| + |s(q)| + |\{r\}| \\
+	|s(r)| &\leq 2n + 1 + 2m + 1 + 1 \\
+	|s(r)| &\leq 2(n+m+1)+1
+  \end{align*}
+  Since the desired property holds for $r$ the inductive hypothesis holds $\forall n \in N$.
+  \end{description*}
 
-\begin{description*}
-\item[\hspace{2em}(ii)] $A(\varphi) \wedge A(\psi) \implies A((\varphi \Box \psi))$
 \end{description*}
 
-Suppose $\varphi,\psi \in PROP$, with $n,m$ connectives resp., and $A(\varphi),A(\psi)$ \\
-$|SUB(\varphi)| \leq 2n+1$ \hspace{2em} $|SUB(\psi)| \leq 2M+1$ \\
-$SUB(\varphi \Box \psi) = SUB(\varphi) \cup SUB(\psi) \cup \{\varphi \box \psi\}$ (definition of SUB)\\
-\begin{align*}
-|SUB(\varphi \Box \psi)| &\leq |SUB(\varphi)| + |SUB(\psi)| + 1 \\
-|SUB(\varphi \Box \psi)| &\leq 2n + 1 + 2m + 1 + 1 \\
-|SUB(\varphi \Box \psi)| &\leq 2(n+m+1)+1
-\end{align*}
-$(\varphi \Box \psi)$ has $n + m + 1$ connectives, and at most $2(n+m+1)$ subformulas, thus $A(\varphi), A(\psi) \implies A((\varphi \Box \psi))$.
-
-\begin{description*}
-\item[\hspace{2em}(iii)] $A(\varphi) \implies A((\lnot \varphi))$
-\end{description*}
-
-Suppose $\varphi \in PROP$, with $n$ connectives, and $A(\varphi)$, then $|SUB(\varphi)| \leq 2n+1$ \\
-
-\begin{align*}
-SUB((\lnot \varphi)) &= SUB(\varphi) \cup \{(\lnot \varphi)\} \\
-|SUB((\lnot \varphi))| &\leq |SUB(\varphi)| + |\{(\lnot \varphi)\} \\
-|SUB((\lnot \varphi))| &\leq 2n + 1 + 1 \\ 
-|SUB((\lnot \varphi))| &\leq 2(n+1) \\ 
-|SUB((\lnot \varphi))| &\leq 2(n+1) + 1\\ 
-\end{align*}
-$(\lnot \varphi)$ has n+1 connectives, and at most $2(n+1)+1$ subformulas, thus $A(\varphi) \implies A((\lnot \varphi))$.\\ \\
-From (i), (ii), (iii), and the induction principle for PROP, A proposition with $n$ connectives has at most $2n+1$ subformulas. 
 %----------------------BEGIN PROBLEM 3----------------------
 
 \section*{3}
@@ -152,7 +150,16 @@ Is a tautology.
 %----------------------BEGIN PROBLEM 4----------------------
 
 \section*{4}
+\begin{description*}
+  \item[(a)] $\varphi \models \varphi$
 
+
+  \item[(b)] $\varphi \models \psi$ and $\psi \models \sigma \implies \varphi \models \sigma$
+
+  \item[(c)] $\models \varphi \to \psi \iff \varphi \models \psi$
+
+
+\end{description*}
 
 
 %----------------------BEGIN PROBLEM 5----------------------
@@ -163,11 +170,12 @@ Is a tautology.
 %----------------------BEGIN PROBLEM 6----------------------
 
 \section*{6}
-
+{\small \#} $= \lnot (\lnot (\lnot p \lor \lnot q) \lor \lnot (p \lor q))$
 
 %----------------------BEGIN PROBLEM 7----------------------
 
 \section*{7}
+A conjunctive normal form is a tautology iff every clause is also a tautology.
 
 %----------------------BEGIN PROBLEM 8----------------------
 
@@ -176,7 +184,25 @@ Is a tautology.
 %----------------------BEGIN PROBLEM 9----------------------
 
 \section*{9}
+\begin{description*}
+  \item[$P\to Q$:] 
 
+  True when $P$ is false; false when $P$ is true and $Q$ is false.
+
+  \item[$P \lor Q \to P \land Q$:]
+
+  True when $P\iff Q$; false otherwise.
+
+  \item[$\lnot (P \lor Q \lor R)$:]
+
+  True when $P,Q,R$ are all false; false when any $P,Q,R$ are true.
+
+  \item[$\lnot (P \land Q) \land \lnot (Q \lor R) \land (P\lor R)$:]
+
+  True when $P$ is true, $Q$ is false, $R$ is false; false when $P$ is false and $R$ is false.
+
+
+\end{description*}
 
 
 \end{document}
