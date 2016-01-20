@@ -111,13 +111,22 @@ $\lnot ((\lnot p_1) \to (\lnot p_1))$
 
   \begin{description*}
   \item[Base Case] A proposition $P$ with zero connectives has $\leq 2(0) + 1 = 1$ subforumla(s).
-  \item[Inductive Case] Inductive Hypothesis: A proposition $\varphi$ with $n$ connectives has at most $2n + 1$ subformulas, where $s(\varphi)$ gives the number of subformulas.\\
-  Assume propositions $p,q$ (where $s(p) = n$ and $s(q) = m \leq n$ connectives) have the property above. If we create a new proposition $r$ from $p$ and $q$ we have: 
+  \item[Inductive Case] Inductive Hypothesis: A proposition $\varphi$ with $n$ connectives has at most $2n + 1$ subformulas, where $s(\varphi)$ gives the number of subformulas (Def 2.1.3).\\
+  Assume propositions $p,q$ with $n,m \leq n$ connectives resp., both of which have the property above. $s(p) \leq 2n+1$ and $s(q) \leq 2m+1$. Consider the proposition $r = (p \Box q)$. $r$ must have $n+m+1$ connectives. From the definition of s,
   \begin{align*}
   s(r) &= s(p) + s(q) + 1\\
   s(r) &= n + m + 1 \\
   s(r) &\leq 2n + 1
   \end{align*}
+
+
+  \begin{align*}
+	s(r) &= s(p) \cup s(q) \cup \{r\} \\
+	|s(r)| &\leq |s(p)| + |s(q)| + |\{r\}| \\
+	|s(r)| &\leq 2n + 1 + 2m + 1 + 1 \\
+	|s(r)| &\leq 2(n+m+1)+1
+  \end{align*}
+  
   Since the desired property holds for $r$ the inductive hypothesis holds $\forall n \in N$.
   \end{description*}
 
@@ -187,7 +196,24 @@ Is a tautology.
 %----------------------BEGIN PROBLEM 5----------------------
 
 \section*{5}
+\begin{description*}
+	\item[1.] Show by algebraic means:
+\end{description*}
 
+\textbf{(i)} $\models (\varphi \implies \psi) \iff (\lnot \psi \implies \lnot \varphi)$ contraposition
+\begin{align*}
+	\varphi \implies \psi &\approx \lnot \varphi \vee \psi \text{Thm 2.3.4.b}\\
+	\varphi \implies \psi &\approx \psi \vee \lnot \varphi \text{commutativity}\\
+	\varphi \implies \psi &\approx \lnot \psi \implies \lnot \varphi \text{Thm 2.3.4.b}\\
+\end{align*}
+
+\textbf{(v)} $\models \lnot(\varphi \wedge \lnot \varphi)$
+\begin{align*}
+	\lnot(\varphi \wedge \lnot \varphi) &\approx \lnot \varphi \vee \lnot(\lnot \varphi) deMorgan's\\
+	\lnot(\varphi \wedge \lnot \varphi) &\approx \lnot \varphi \vee \varphi Double Negation law\\
+	\lnot(\varphi \wedge \lnot \varphi) &\approx \varphi \implies \varphi Thm 2.3.4.b \\
+	\lnot(\varphi \wedge \lnot \varphi) &\approx \top (Not sure which rule for this) \\
+\end{align*}
 
 %----------------------BEGIN PROBLEM 6----------------------
 
