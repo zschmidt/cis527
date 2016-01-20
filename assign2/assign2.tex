@@ -165,7 +165,24 @@ Is a tautology.
 %----------------------BEGIN PROBLEM 5----------------------
 
 \section*{5}
+\begin{description*}
+	\item[1.] Show by algebraic means:
+\end{description*}
 
+\textbf{(i)} $\models (\varphi \implies \psi) \iff (\lnot \psi \implies \lnot \varphi)$ contraposition
+\begin{align*}
+	\varphi \implies \psi &\approx \lnot \varphi \vee \psi \text{Thm 2.3.4.b}\\
+	\varphi \implies \psi &\approx \psi \vee \lnot \varphi \text{commutativity}\\
+	\varphi \implies \psi &\approx \lnot \psi \implies \lnot \varphi \text{Thm 2.3.4.b}\\
+\end{align*}
+
+\textbf{(v)} $\models \lnot(\varphi \wedge \lnot \varphi)$
+\begin{align*}
+	\lnot(\varphi \wedge \lnot \varphi) &\approx \lnot \varphi \vee \lnot(\lnot \varphi) deMorgan's\\
+	\lnot(\varphi \wedge \lnot \varphi) &\approx \lnot \varphi \vee \varphi Double Negation law\\
+	\lnot(\varphi \wedge \lnot \varphi) &\approx \varphi \implies \varphi Thm 2.3.4.b \\
+	\lnot(\varphi \wedge \lnot \varphi) &\approx \top (Not sure which rule for this) \\
+\end{align*}
 
 %----------------------BEGIN PROBLEM 6----------------------
 
