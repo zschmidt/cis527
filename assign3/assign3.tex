@@ -59,8 +59,38 @@
 Show that the following propositions are derivable:
 \begin{description*}
 \item[(a)] $\varphi \to \varphi$
+
+\begin{prooftree}
+  \AxiomC{$[ \varphi ]^1$}
+  \UnaryInfC{$ \varphi$}
+  \RightLabel{$\to I^1 $}
+  \UnaryInfC{$\varphi \to \varphi$}
+\end{prooftree}
+
+
 \item[(b)] $\bot \to \varphi$
+
+\begin{prooftree}
+  \AxiomC{$[ \bot ]^1$}
+  \RightLabel{$\bot E $}
+  \UnaryInfC{$ \varphi$}
+  \RightLabel{$\to I^1 $}
+  \UnaryInfC{$\bot \to \varphi$}
+\end{prooftree}
+
+
 \item[(c)] $\lnot ( \varphi \land \lnot \varphi )$
+
+\begin{prooftree}
+  \AxiomC{$ \varphi $}
+  \AxiomC{$ \lnot \varphi $}
+  \RightLabel{$\land I $}
+  \BinaryInfC{$ \varphi \land \lnot \varphi $}
+  \RightLabel{$\to I^1 $}
+  \UnaryInfC{$\lnot ( \varphi \land \lnot \varphi )$}
+\end{prooftree}
+
+
 \item[(d)] $(\varphi \to \psi )\leftrightarrow \lnot (\varphi \land \lnot \psi )$
 \item[(e)] $(\varphi \land \psi )\leftrightarrow \lnot (\varphi \to \lnot \psi )$
 \item[(f)] $\varphi \to (\psi \to (\varphi \land \psi ))$
