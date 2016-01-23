@@ -1,0 +1,94 @@
+\documentclass[10pt]{article}
+
+%these two are needed for tree drawings
+\usepackage{graphicx,qtree}
+
+%this package makes lists more compact
+\usepackage{mdwlist}
+
+%We can get rid of the amsmath package with this definition
+\newcommand{\implies}{\Rightarrow \ }
+
+%latexsym is needed for \Box
+\usepackage{latexsym}
+
+%This section is needed for the valuation brackets
+\usepackage{tikz}
+\newcommand{\llbracket}{\
+  \begin{tikzpicture}[scale=0.09,baseline=.3em]
+  \draw (1.75,0) -- (0,0) -- (0,4) -- (1.75,4);
+  \draw (1,0) -- (1,4);
+  \end{tikzpicture}
+  \
+}
+\newcommand{\rrbracket}{\
+  \begin{tikzpicture}[scale=0.09,baseline=.3em]
+  \draw (0,4) -- (1.75,4) -- (1.75,0) -- (0,0);
+  \draw (.75,0) -- (.75,4);
+  \end{tikzpicture}
+  \
+}
+
+%This package allows for the natural deduction proofs
+%Can be found here: http://math.ucsd.edu/~sbuss/ResearchWeb/bussproofs/bussproofs.sty
+\usepackage{bussproofs}
+
+%This is me being a jerk about margins
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=10mm,
+ bottom=20mm,
+ }
+
+\begin{document}
+
+%I hate the stock pound sign... so I fiddle with it here
+\title{Assignment \raisebox{.22ex}{\large\#}3 \\
+	CIS 427/527}
+\author{Group 2}
+
+\maketitle
+
+%----------------------BEGIN PROBLEM 1----------------------
+
+\section*{1}
+Show that the following propositions are derivable:
+\begin{description*}
+\item[(a)] $\varphi \to \varphi$
+\item[(b)] $\bot \to \varphi$
+\item[(c)] $\lnot ( \varphi \land \lnot \varphi )$
+\item[(d)] $(\varphi \to \psi )\leftrightarrow \lnot (\varphi \land \lnot \psi )$
+\item[(e)] $(\varphi \land \psi )\leftrightarrow \lnot (\varphi \to \lnot \psi )$
+\item[(f)] $\varphi \to (\psi \to (\varphi \land \psi ))$
+\end{description*}
+
+
+%----------------------BEGIN PROBLEM 2----------------------
+
+\section*{2}
+Show that the following propositions are derivable:
+\begin{description*}
+\item[(a)] $(\varphi \to \lnot \varphi )\to \lnot \varphi $
+\item[(b)] $ [ \varphi \to ( \psi \to \sigma ] \leftrightarrow [ \psi \to ( \varphi \to \sigma ) ] $ {\huge TYPO -- NEED CLARIFICATION}
+\item[(c)] $( \varphi \to \psi )\land ( \varphi \to \lnot \psi )\to \lnot \varphi$
+\item[(d)] $(\varphi \to \psi )\to [ (\varphi \to (\psi \to \sigma )) \to (\varphi \to \sigma ) ]$
+\end{description*}
+
+%----------------------BEGIN PROBLEM 3----------------------
+
+\section*{3}
+Show:
+\begin{description*}
+\item[(a)] $\varphi \vdash \lnot (\lnot \varphi \land \psi )$
+\item[(b)] $ \lnot ( \varphi \land \lnot \psi ), \varphi \vdash \psi $
+\item[(c)] $\lnot \varphi \vdash (\varphi \to \psi ) \leftrightarrow \lnot \varphi$
+\item[(d)] $\vdash \varphi \implies \vdash \psi \to \varphi $
+\item[(e)] $\lnot \varphi \vdash \varphi \to \psi $
+\end{description*}
+
+
+\end{document}
