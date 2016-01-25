@@ -62,7 +62,6 @@ Show that the following propositions are derivable:
 
 \begin{prooftree}
   \AxiomC{$[ \varphi ]^1$}
-  \UnaryInfC{$ \varphi$}
   \RightLabel{$\to I^1 $}
   \UnaryInfC{$\varphi \to \varphi$}
 \end{prooftree}
@@ -82,10 +81,16 @@ Show that the following propositions are derivable:
 \item[(c)] $\lnot ( \varphi \land \lnot \varphi )$
 
 \begin{prooftree}
+  \AxiomC{$\lnot \varphi $}
+  \AxiomC{$[ \varphi ]$}
+  \UnaryInfC{$\lnot \varphi \to \varphi $}
+  \BinaryInfC{$ \varphi $}
   \AxiomC{$ \varphi $}
-  \AxiomC{$ \lnot \varphi $}
+  \AxiomC{$[ \lnot \varphi ]$}
+  \UnaryInfC{$\varphi \to \lnot \varphi $}
+  \BinaryInfC{$ \lnot \varphi $}
   \RightLabel{$\land I $}
-  \BinaryInfC{$ \varphi \land \lnot \varphi $}
+  \BinaryInfC{$ \bot $}
   \RightLabel{$\to I^1 $}
   \UnaryInfC{$\lnot ( \varphi \land \lnot \varphi )$}
 \end{prooftree}
@@ -111,15 +116,19 @@ Show that the following propositions are derivable:
 \item[(f)] $\varphi \to (\psi \to (\varphi \land \psi ))$
 
 \begin{prooftree}
-  \AxiomC{$[ \varphi]_1 $}
-  \AxiomC{$[ \psi]_2 $}
-\RightLabel{$ \land I$}
-\BinaryInfC{$ \varphi \land \psi $}
-\RightLabel{$ \to I_2 $}
-\UnaryInfC{$ (\psi \to ( \varphi \land \psi )) $}
-\RightLabel{$ \to I_1 $}
-\UnaryInfC{$ \varphi \to (\psi \to (\varphi \land \psi)) $}
+
+  \AxiomC{$[ \varphi ]^1$}
+  \AxiomC{$[ \psi ]^2$}
+  \RightLabel{$\land I $}
+  \BinaryInfC{$\varphi \land \psi $}
+  \RightLabel{$\to I^2 $}
+  \UnaryInfC{$\psi \to (\varphi \land \psi )$}
+  \RightLabel{$\to I^1 $}
+  \UnaryInfC{$\varphi \to (\psi \to (\varphi \land \psi ))$}
 \end{prooftree}
+
+
+
 
 \end{description*}
 
