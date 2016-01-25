@@ -90,10 +90,37 @@ Show that the following propositions are derivable:
   \UnaryInfC{$\lnot ( \varphi \land \lnot \varphi )$}
 \end{prooftree}
 
+\begin{center}or\end{center}
+\begin{prooftree}
+  \AxiomC{$[ \varphi \land \lnot \varphi]_1 $}
+\RightLabel{$ \land E $}
+\UnaryInfC{$\varphi $}
+  \AxiomC{$ [\varphi \land \lnot \varphi ]_1$}
+\RightLabel{$ \land E $}
+\UnaryInfC{$\lnot \varphi $}
+  \RightLabel{$E$}
+  \BinaryInfC{$ \bot $}
+  \RightLabel{$\to RAA^1 $}
+  \UnaryInfC{$\lnot ( \varphi \land \lnot \varphi )$}
+\end{prooftree}
+
+
 
 \item[(d)] $(\varphi \to \psi )\leftrightarrow \lnot (\varphi \land \lnot \psi )$
 \item[(e)] $(\varphi \land \psi )\leftrightarrow \lnot (\varphi \to \lnot \psi )$
 \item[(f)] $\varphi \to (\psi \to (\varphi \land \psi ))$
+
+\begin{prooftree}
+  \AxiomC{$[ \varphi]_1 $}
+  \AxiomC{$[ \psi]_2 $}
+\RightLabel{$ \land I$}
+\BinaryInfC{$ \varphi \land \psi $}
+\RightLabel{$ \to I_2 $}
+\UnaryInfC{$ (\psi \to ( \varphi \land \psi )) $}
+\RightLabel{$ \to I_1 $}
+\UnaryInfC{$ \varphi \to (\psi \to (\varphi \land \psi)) $}
+\end{prooftree}
+
 \end{description*}
 
 
@@ -103,9 +130,47 @@ Show that the following propositions are derivable:
 Show that the following propositions are derivable:
 \begin{description*}
 \item[(a)] $(\varphi \to \lnot \varphi )\to \lnot \varphi $
+
+\begin{prooftree}
+  \AxiomC{$[ \varphi \to \lnot \varphi]_1 $}
+  \AxiomC{$[ \varphi]_2 $}
+\RightLabel{$ \to E$}
+\BinaryInfC{$ \lnot \varphi \land \varphi $}
+\RightLabel{$ E $}
+\UnaryInfC{$\bot $}
+\RightLabel{$RAA_2 $}
+\UnaryInfC{$ \lnot \varphi $}
+\RightLabel{$\to I_1 $}
+\UnaryInfC{$ (\varphi \to \lnot \varphi )\to \lnot \varphi $}
+\end{prooftree}
+
+
 \item[(b)] $ [ \varphi \to ( \psi \to \sigma ] \leftrightarrow [ \psi \to ( \varphi \to \sigma ) ] $ {\huge TYPO -- NEED CLARIFICATION}
 \item[(c)] $( \varphi \to \psi )\land ( \varphi \to \lnot \psi )\to \lnot \varphi$
 \item[(d)] $(\varphi \to \psi )\to [ (\varphi \to (\psi \to \sigma )) \to (\varphi \to \sigma ) ]$
+
+\begin{prooftree}
+\AxiomC{$[\varphi \to \psi]_1$}
+\AxiomC{$[\varphi]_2$}
+
+\RightLabel{$ \to E $}
+\BinaryInfC{$\psi$}
+\AxiomC{$[\varphi]_2$}
+\AxiomC{$[(\varphi \to ( \psi \to \sigma))]_3$}
+
+\RightLabel{$ \to E $}
+\BinaryInfC{$\psi \to \sigma$}
+\RightLabel{$ \to E $}
+\BinaryInfC{$\sigma$}
+\RightLabel{$ \to I_2 $}
+\UnaryInfC{$\varphi \to \sigma$}
+\RightLabel{$ \to I_3 $}
+\UnaryInfC{$ (\varphi \to (\psi \to \sigma )) \to (\varphi \to \sigma )$}
+\RightLabel{$ \to I_1 $}
+\UnaryInfC{$(\varphi \to \psi )\to [ (\varphi \to (\psi \to \sigma )) \to (\varphi \to \sigma ) ]$}
+\end{prooftree} 
+
+
 \end{description*}
 
 %----------------------BEGIN PROBLEM 3----------------------
