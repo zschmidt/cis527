@@ -81,22 +81,6 @@ Show that the following propositions are derivable:
 \item[(c)] $\lnot ( \varphi \land \lnot \varphi )$
 
 \begin{prooftree}
-  \AxiomC{$\lnot \varphi $}
-  \AxiomC{$[ \varphi ]$}
-  \UnaryInfC{$\lnot \varphi \to \varphi $}
-  \BinaryInfC{$ \varphi $}
-  \AxiomC{$ \varphi $}
-  \AxiomC{$[ \lnot \varphi ]$}
-  \UnaryInfC{$\varphi \to \lnot \varphi $}
-  \BinaryInfC{$ \lnot \varphi $}
-  \RightLabel{$\land I $}
-  \BinaryInfC{$ \bot $}
-  \RightLabel{$\to I^1 $}
-  \UnaryInfC{$\lnot ( \varphi \land \lnot \varphi )$}
-\end{prooftree}
-
-\begin{center}or\end{center}
-\begin{prooftree}
   \AxiomC{$[ \varphi \land \lnot \varphi]_1 $}
 \RightLabel{$ \land E $}
 \UnaryInfC{$\varphi $}
@@ -112,11 +96,60 @@ Show that the following propositions are derivable:
 
 
 \item[(d)] $(\varphi \to \psi )\leftrightarrow \lnot (\varphi \land \lnot \psi )$
+\\{\huge Incomplete}
+\begin{prooftree}
+\AxiomC{$\bot$}
+\RightLabel{RAA}
+\UnaryInfC{$\lnot (\varphi \land \lnot \psi)$}
+\RightLabel{$\to I $}
+\UnaryInfC{$(\varphi \to \psi )\to \lnot (\varphi \land \lnot \psi )$}
+\AxiomC{$\varphi \to \psi$}
+\RightLabel{$\to I $}
+\UnaryInfC{$\lnot (\varphi \land \lnot \psi )\to (\varphi \to \psi ) $}
+\RightLabel{$\to I $}
+\BinaryInfC{$(\varphi \to \psi )\leftrightarrow \lnot (\varphi \land \lnot \psi )$}
+\end{prooftree} 
+
+
+
 \item[(e)] $(\varphi \land \psi )\leftrightarrow \lnot (\varphi \to \lnot \psi )$
+\\{\huge Incomplete}
+
+\begin{prooftree}
+\AxiomC{$ \bot $}
+\RightLabel{$\to I $}
+\UnaryInfC{$ \lnot \psi $}
+\RightLabel{$\to I $}
+\UnaryInfC{$\varphi \to \lnot \psi $}
+\RightLabel{$\to I $}
+\UnaryInfC{$(\varphi \land \psi )\to \lnot (\varphi \to \lnot \psi )$}
+                                          \AxiomC{$[ \varphi ]_4$}
+                                          \AxiomC{$[ \lnot \varphi ]_3$}
+                                          \BinaryInfC{$\bot$}
+                                          \RightLabel{$\to I^4 $}
+                                          \UnaryInfC{$\varphi \to \lnot \psi$}
+                                          \UnaryInfC{$\bot$}
+                                          \RightLabel{$\to I^3 $}
+                                          \UnaryInfC{$\lnot \lnot \varphi $}
+                                          \UnaryInfC{$\varphi $}
+                                                            \AxiomC{$[ \varphi ]_2$}
+                                                            \AxiomC{$[ \lnot \psi ]_1$}
+                                                            \RightLabel{$\to I $}
+                                                            \BinaryInfC{$\varphi \to \lnot \psi$}   
+                                                            \UnaryInfC{$\bot$}
+                                                            \RightLabel{$\to I^1 $}
+                                                            \UnaryInfC{$\lnot \lnot \psi$}
+                                                            \UnaryInfC{$\psi$}
+                                          \RightLabel{$\land I^2 $}
+                                          \BinaryInfC{$\varphi \land \psi$}
+                        \RightLabel{$\to I $}
+                        \UnaryInfC{$\lnot (\varphi \to \lnot \psi ) \to (\varphi \land \psi ) $}
+\BinaryInfC{$(\varphi \land \psi )\leftrightarrow \lnot (\varphi \to \lnot \psi )$}
+\end{prooftree}
+
 \item[(f)] $\varphi \to (\psi \to (\varphi \land \psi ))$
 
 \begin{prooftree}
-
   \AxiomC{$[ \varphi ]^1$}
   \AxiomC{$[ \psi ]^2$}
   \RightLabel{$\land I $}
@@ -154,7 +187,7 @@ Show that the following propositions are derivable:
 \end{prooftree}
 
 
-\item[(b)] $ [ \varphi \to ( \psi \to \sigma ] \leftrightarrow [ \psi \to ( \varphi \to \sigma ) ] $ {\huge TYPO -- NEED CLARIFICATION}
+\item[(b)] $ [ \varphi \to ( \psi \to \sigma )] \leftrightarrow [ \psi \to ( \varphi \to \sigma ) ] $
 \item[(c)] $( \varphi \to \psi )\land ( \varphi \to \lnot \psi )\to \lnot \varphi$
 \item[(d)] $(\varphi \to \psi )\to [ (\varphi \to (\psi \to \sigma )) \to (\varphi \to \sigma ) ]$
 
@@ -192,6 +225,8 @@ Show:
 \item[(c)] $\lnot \varphi \vdash (\varphi \to \psi ) \leftrightarrow \lnot \varphi$
 \item[(d)] $\vdash \varphi \implies \vdash \psi \to \varphi $
 \item[(e)] $\lnot \varphi \vdash \varphi \to \psi $
+
+
 \end{description*}
 
 
