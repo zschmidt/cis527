@@ -170,11 +170,12 @@ Show that the following propositions are derivable:
 \begin{prooftree}
   \AxiomC{$[ \varphi \to \lnot \varphi]_1 $}
   \AxiomC{$[ \varphi]_2 $}
-\RightLabel{$ \to E$}
-\BinaryInfC{$ \lnot \varphi \land \varphi $}
-\RightLabel{$ E $}
-\UnaryInfC{$\bot $}
-\RightLabel{$RAA_2 $}
+\RightLabel{$ \to $E}
+\BinaryInfC{$ \lnot \varphi$}
+\AxiomC{$[ \varphi]_2 $}
+\RightLabel{$\to $E}
+\BinaryInfC{$\bot $}
+\RightLabel{$\to $I$^2 $}
 \UnaryInfC{$ \lnot \varphi $}
 \RightLabel{$\to I_1 $}
 \UnaryInfC{$ (\varphi \to \lnot \varphi )\to \lnot \varphi $}
