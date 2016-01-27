@@ -218,6 +218,31 @@ Show that the following propositions are derivable:
 
 
 \item[(c)] $( \varphi \to \psi )\land ( \varphi \to \lnot \psi )\to \lnot \varphi$
+
+
+\begin{prooftree}
+  \AxiomC{$[(\varphi \to \psi)\land(\varphi \to \lnot \psi)]_2$}
+  \RightLabel{$\land $E}
+  \UnaryInfC{$\varphi \to \psi$}
+              \AxiomC{$[\varphi]_1$}
+  \RightLabel{$\to $E}
+  \BinaryInfC{$\psi$}
+                                          \AxiomC{$[(\varphi \to \psi)\land(\varphi \to \lnot \psi)]_2$}
+                                          \RightLabel{$\land $E}
+                                          \UnaryInfC{$\varphi \to \lnot \psi$}
+                                                      \AxiomC{$[\varphi]_1$}
+                                          \RightLabel{$\to $E}
+                                          \BinaryInfC{$\lnot \psi$}
+  \RightLabel{$\to $E}                                        
+  \BinaryInfC{$\bot$}
+  \RightLabel{$\to $I$^1$} 
+  \UnaryInfC{$\lnot \varphi$}
+  \RightLabel{$\to $I$^2$} 
+  \UnaryInfC{$(\varphi \to \psi)\land(\varphi \to \lnot \psi) \to \lnot \varphi$}
+
+\end{prooftree}
+
+
 \item[(d)] $(\varphi \to \psi )\to [ (\varphi \to (\psi \to \sigma )) \to (\varphi \to \sigma ) ]$
 
 \begin{prooftree}
