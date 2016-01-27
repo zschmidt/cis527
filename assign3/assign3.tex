@@ -183,6 +183,40 @@ Show that the following propositions are derivable:
 
 
 \item[(b)] $ [ \varphi \to ( \psi \to \sigma )] \leftrightarrow [ \psi \to ( \varphi \to \sigma ) ] $
+
+\begin{prooftree}
+  \AxiomC{$[\psi \to (\varphi \to \sigma)]_3$}
+  \AxiomC{$[\psi]_1$}
+  \RightLabel{$\to $E}
+  \BinaryInfC{$\varphi \to \sigma$}
+  \AxiomC{$[\varphi]_2$}
+  \RightLabel{$\to $E}
+  \BinaryInfC{$\sigma$}
+  \RightLabel{$\to $I$^1$}
+  \UnaryInfC{$\psi \to \sigma$}
+  \RightLabel{$\to $I$^2$}
+  \UnaryInfC{$\varphi \to (\psi \to \sigma)$}
+  \RightLabel{$\to $I$^3$}
+  \UnaryInfC{$[\psi \to (\varphi \to \sigma)]\to[\varphi \to (\psi \to \sigma)]$}
+                              \AxiomC{$[\varphi \to (\psi \to \sigma)]_3$}
+                              \AxiomC{$[\varphi]_1$}
+                              \RightLabel{$\to $E}
+                              \BinaryInfC{$\psi \to \sigma$}
+                              \AxiomC{$[\psi]_2$}
+                              \RightLabel{$\to $E}
+                              \BinaryInfC{$\sigma$}
+                              \RightLabel{$\to $I$^1$}
+                              \UnaryInfC{$\varphi \to \sigma$}
+                              \RightLabel{$\to $I$^2$}
+                              \UnaryInfC{$\psi \to (\varphi \to \sigma)$}
+                              \RightLabel{$\to $I$^3$}
+                              \UnaryInfC{$[\varphi \to (\psi \to \sigma)]\to[\psi \to (\varphi \to \sigma)]$}
+  \BinaryInfC{$[ \varphi \to ( \psi \to \sigma )] \leftrightarrow [ \psi \to ( \varphi \to \sigma ) ]$}
+\end{prooftree}
+
+
+
+
 \item[(c)] $( \varphi \to \psi )\land ( \varphi \to \lnot \psi )\to \lnot \varphi$
 \item[(d)] $(\varphi \to \psi )\to [ (\varphi \to (\psi \to \sigma )) \to (\varphi \to \sigma ) ]$
 
