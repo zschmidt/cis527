@@ -215,6 +215,19 @@ Show that the following propositions are derivable:
 Show:
 \begin{description*}
 \item[(a)] $\varphi \vdash \lnot (\lnot \varphi \land \psi )$
+
+\begin{prooftree}
+\AxiomC{$[ \lnot \varphi \land \psi]_1 $}
+\RightLabel{$ \land $E}
+\UnaryInfC{$ \lnot \varphi $}
+\AxiomC{$\varphi $}
+\RightLabel{$\to $E}
+\BinaryInfC{$ \bot $}
+\RightLabel{$\to I_1 $}
+\UnaryInfC{$ \lnot (\lnot \varphi \land \psi ) $}
+\end{prooftree}
+
+
 \item[(b)] $ \lnot ( \varphi \land \lnot \psi ), \varphi \vdash \psi $
 \item[(c)] $\lnot \varphi \vdash (\varphi \to \psi ) \leftrightarrow \lnot \varphi$
 \item[(d)] $\vdash \varphi \implies \vdash \psi \to \varphi $
