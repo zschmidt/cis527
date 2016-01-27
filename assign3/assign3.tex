@@ -87,7 +87,7 @@ Show that the following propositions are derivable:
   \AxiomC{$ [\varphi \land \lnot \varphi ]_1$}
 \RightLabel{$ \land E $}
 \UnaryInfC{$\lnot \varphi $}
-  \RightLabel{EFQ}
+  \RightLabel{$\to$E}
   \BinaryInfC{$ \bot $}
   \RightLabel{$\to $I$^1 $}
   \UnaryInfC{$\lnot ( \varphi \land \lnot \varphi )$}
@@ -343,12 +343,33 @@ Show:
                                             \UnaryInfC{$\lnot \varphi$}
                                             \RightLabel{$\to$I$^1$}
                                             \UnaryInfC{$(\varphi \to \psi)\to \lnot \varphi$}
+\RightLabel{$\land$I}
 \BinaryInfC{$(\varphi \to \psi)\leftrightarrow \lnot \varphi$}
 
 
 \end{prooftree}
 
-\item[(d)] $\vdash \varphi \implies \vdash \psi \to \varphi $
+\item[(d)] $\vdash \varphi \implies \vdash \psi \to \varphi $ \\
+Given $\vdash \varphi$, there exists a derivation $_{\varphi}^{D}$, with all hypotheses in $D$ cancelled. Since $_{\varphi}^{D}, \psi$ are derivations, the definition of the set of derivations gives: \\
+\begin{prooftree}
+\AxiomC{$\psi$}
+\AxiomC{$_{\varphi}^{D}$}
+\RightLabel{$\land$I}
+\BinaryInfC{$\psi \land \varphi$}
+\end{prooftree}
+From here we can apply derviation rules to prove $\psi \to \varphi$
+\begin{prooftree}
+\AxiomC{$[\psi]_1$}
+\AxiomC{$_{\varphi}^{D}$}
+\RightLabel{$\land$I}
+\BinaryInfC{$\psi \land \varphi$}
+\RightLabel{$\land$E}
+\UnaryInfC{$\varphi$}
+\RightLabel{$\to$I$_1$}
+\UnaryInfC{$\psi \to \varphi$}
+\end{prooftree}
+
+
 \item[(e)] $\lnot \varphi \vdash \varphi \to \psi $
 
 \begin{prooftree}
