@@ -217,14 +217,14 @@ Show:
 \item[(a)] $\varphi \vdash \lnot (\lnot \varphi \land \psi )$
 
 \begin{prooftree}
-\AxiomC{$[ \lnot \varphi \land \psi]_1 $}
-\RightLabel{$ \land $E}
-\UnaryInfC{$ \lnot \varphi $}
-\AxiomC{$\varphi $}
-\RightLabel{$\to $E}
-\BinaryInfC{$ \bot $}
-\RightLabel{$\to I_1 $}
-\UnaryInfC{$ \lnot (\lnot \varphi \land \psi ) $}
+  \AxiomC{$[ \lnot \varphi \land \psi]_1 $}
+  \RightLabel{$ \land $E}
+  \UnaryInfC{$ \lnot \varphi $}
+  \AxiomC{$\varphi $}
+  \RightLabel{$\to $E}
+  \BinaryInfC{$ \bot $}
+  \RightLabel{$\to I_1 $}
+  \UnaryInfC{$ \lnot (\lnot \varphi \land \psi ) $}
 \end{prooftree}
 
 
@@ -232,6 +232,17 @@ Show:
 \item[(c)] $\lnot \varphi \vdash (\varphi \to \psi ) \leftrightarrow \lnot \varphi$
 \item[(d)] $\vdash \varphi \implies \vdash \psi \to \varphi $
 \item[(e)] $\lnot \varphi \vdash \varphi \to \psi $
+
+\begin{prooftree}
+  \AxiomC{$[\varphi ]_1 $}
+  \AxiomC{$\lnot \varphi $}
+  \RightLabel{$ \to $E}
+  \BinaryInfC{$\bot $}
+  \RightLabel{EFQ}
+  \UnaryInfC{$ \psi $}
+  \RightLabel{$\to I_1 $}
+  \UnaryInfC{$ \varphi \to \psi $}
+\end{prooftree}
 
 
 \end{description*}
