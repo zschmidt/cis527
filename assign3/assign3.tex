@@ -307,6 +307,21 @@ Show:
 
 
 \item[(b)] $ \lnot ( \varphi \land \lnot \psi ), \varphi \vdash \psi $
+
+\begin{prooftree}
+  \AxiomC{$[ \lnot \psi]_1 $}
+  \AxiomC{$\varphi $}
+  \RightLabel{$ \land $I}
+  \BinaryInfC{$ \varphi \land \lnot \psi $}
+  \AxiomC{$\lnot (\varphi \land \lnot \psi) $}
+  \RightLabel{$\to $E}
+  \BinaryInfC{$ \bot $}
+  \RightLabel{RAA$_1 $}
+  \UnaryInfC{$  \psi $}
+\end{prooftree}
+
+
+\newpage
 \item[(c)] $\lnot \varphi \vdash (\varphi \to \psi ) \leftrightarrow \lnot \varphi$
 
 \begin{prooftree}
