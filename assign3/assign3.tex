@@ -253,7 +253,6 @@ Show that the following propositions are derivable:
 \BinaryInfC{$\psi$}
 \AxiomC{$[\varphi]_2$}
 \AxiomC{$[(\varphi \to ( \psi \to \sigma))]_3$}
-
 \RightLabel{$ \to E $}
 \BinaryInfC{$\psi \to \sigma$}
 \RightLabel{$ \to E $}
@@ -290,6 +289,31 @@ Show:
 
 \item[(b)] $ \lnot ( \varphi \land \lnot \psi ), \varphi \vdash \psi $
 \item[(c)] $\lnot \varphi \vdash (\varphi \to \psi ) \leftrightarrow \lnot \varphi$
+
+\begin{prooftree}
+\AxiomC{$[\lnot \varphi]_2$}
+\AxiomC{$[ \varphi]_1$}
+\RightLabel{$\to $E}
+\BinaryInfC{$\bot$}
+\RightLabel{EFQ}
+\UnaryInfC{$\psi$}
+\RightLabel{$\to $I$^1$}
+\UnaryInfC{$\varphi \to \psi$}
+\RightLabel{$\to $I$^2$}
+\UnaryInfC{$\lnot \varphi \to (\varphi \to \psi)$}
+                                            \AxiomC{$[\varphi \to \psi]_1$}
+                                            \AxiomC{$\lnot \varphi$}
+                                            \RightLabel{$\land$I}
+                                            \BinaryInfC{$(\varphi \to \psi)\land (\lnot \varphi)$}
+                                            \RightLabel{$\land$E}
+                                            \UnaryInfC{$\lnot \varphi$}
+                                            \RightLabel{$\to$I$^1$}
+                                            \UnaryInfC{$(\varphi \to \psi)\to \lnot \varphi$}
+\BinaryInfC{$(\varphi \to \psi)\leftrightarrow \lnot \varphi$}
+
+
+\end{prooftree}
+
 \item[(d)] $\vdash \varphi \implies \vdash \psi \to \varphi $
 \item[(e)] $\lnot \varphi \vdash \varphi \to \psi $
 
