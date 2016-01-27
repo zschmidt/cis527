@@ -96,17 +96,36 @@ Show that the following propositions are derivable:
 
 
 \item[(d)] $(\varphi \to \psi )\leftrightarrow \lnot (\varphi \land \lnot \psi )$
-\\{\huge Incomplete}
+
+
 \begin{prooftree}
-\AxiomC{$\bot$}
-\RightLabel{RAA}
+\AxiomC{$[\varphi \land \lnot \psi]_1$}
+\RightLabel{$\land$E}
+\UnaryInfC{$\varphi$}
+\AxiomC{$[\varphi \to \psi]_2$}
+\BinaryInfC{$\psi$}
+\AxiomC{$[\varphi \land \lnot \psi]_1$}
+\RightLabel{$\land$E}
+\UnaryInfC{$\lnot \psi$}
+\RightLabel{$\to$E}
+\BinaryInfC{$\bot$}
+\RightLabel{$\to $I$^1 $}
 \UnaryInfC{$\lnot (\varphi \land \lnot \psi)$}
-\RightLabel{$\to I $}
+\RightLabel{$\to $I$^2 $}
 \UnaryInfC{$(\varphi \to \psi )\to \lnot (\varphi \land \lnot \psi )$}
-\AxiomC{$\varphi \to \psi$}
-\RightLabel{$\to I $}
-\UnaryInfC{$\lnot (\varphi \land \lnot \psi )\to (\varphi \to \psi ) $}
-\RightLabel{$\to I $}
+                                    \AxiomC{$[\lnot (\varphi \land \lnot \psi)]_2$}
+                                    \AxiomC{$[\varphi]_3$}
+                                    \AxiomC{$[\lnot \psi]_1$}
+                                    \RightLabel{$\land$I}
+                                    \BinaryInfC{$\varphi \land \lnot \psi$}
+                                    \RightLabel{$\to$E}
+                                    \BinaryInfC{$\bot$}
+                                    \RightLabel{RAA$^1$}
+                                    \UnaryInfC{$\psi$}
+                                    \RightLabel{$\to $I$^3$}
+                                    \UnaryInfC{$\varphi \to \psi$}
+                                    \RightLabel{$\to $I$^2$}
+                                    \UnaryInfC{$\lnot (\varphi \land \lnot \psi )\to (\varphi \to \psi ) $}
 \BinaryInfC{$(\varphi \to \psi )\leftrightarrow \lnot (\varphi \land \lnot \psi )$}
 \end{prooftree} 
 
