@@ -132,32 +132,53 @@ Show that the following propositions are derivable:
 
 
 \item[(e)] $(\varphi \land \psi )\leftrightarrow \lnot (\varphi \to \lnot \psi )$
+\\Note this proof got too wide -- both implications are proved sequentially:
+\begin{prooftree}
+    \AxiomC{$[\varphi]_4$}
+    \AxiomC{$[\lnot \varphi]_5$}
+    \RightLabel{$\to$E}
+    \BinaryInfC{$\bot$}
+    \RightLabel{EFQ}
+    \UnaryInfC{$\lnot \psi$}
+    \RightLabel{$\to$I$^4$}
+    \UnaryInfC{$\varphi \to \lnot \psi$}
+    \AxiomC{$[\lnot (\varphi \to \lnot \psi)]_3$}
+    \RightLabel{$\to$E}
+    \BinaryInfC{$\bot$}
+    \RightLabel{RAA$^5$}
+    \UnaryInfC{$\varphi$}
+                            \AxiomC{$[ \lnot \psi]_1$}
+                            \AxiomC{$[ \varphi ]_2 $}
+                            \RightLabel{$\to$I$^2$}
+                            \BinaryInfC{$\varphi \to \lnot \psi$}
+                            \AxiomC{$[\lnot(\varphi \to \lnot \psi)]_3$}
+                            \RightLabel{$\to$E}
+                            \BinaryInfC{$\bot$}
+                            \RightLabel{RAA$^1$}
+                            \UnaryInfC{$\psi$}  
+          \RightLabel{$\land I$}
+          \BinaryInfC{$\varphi \land \psi$}
+    \RightLabel{$\to $I$^3$}
+    \UnaryInfC{$\lnot (\varphi \to \lnot \psi ) \to (\varphi \land \psi ) $}
+\end{prooftree}
+
+\hrule
 
 \begin{prooftree}
-\AxiomC{$[\varphi \land \psi]_1 $}
-\RightLabel{$\land $E}
-\UnaryInfC{$\psi $}
-\AxiomC{$[\varphi \land \psi]_1 $}
-\RightLabel{$\land $E}
-\UnaryInfC{$\varphi $}
-\AxiomC{$[\varphi \to \lnot \psi]_2$}
-\RightLabel{$\to $I}
-\BinaryInfC{$\lnot \psi $}
-\BinaryInfC{$\bot $}
-\RightLabel{$\to $I$^2$}
-\UnaryInfC{$\lnot (\varphi \to \lnot \psi )$}
-\RightLabel{$\to $I$^1$}
-\UnaryInfC{$(\varphi \land \psi )\to \lnot (\varphi \to \lnot \psi )$}
-                                                    \AxiomC{$[ \lnot ( \varphi \to \lnot \psi)]_1$}
-                                                            \AxiomC{$[\lnot \psi ]^2 $}
-                                                            \UnaryInfC{$\varphi \to \lnot \psi$}
-                                                            \RightLabel{RAA$^2$}
-                                                            \BinaryInfC{$\bot$}   
-                                          \RightLabel{$\land I^1 $}
-                                          \UnaryInfC{$\varphi \land \psi$}
-                        \RightLabel{$\to I $}
-                        \UnaryInfC{$\lnot (\varphi \to \lnot \psi ) \to (\varphi \land \psi ) $}
-\BinaryInfC{$(\varphi \land \psi )\leftrightarrow \lnot (\varphi \to \lnot \psi )$}
+    \AxiomC{$[\varphi \land \psi]_1 $}
+    \RightLabel{$\land $E}
+    \UnaryInfC{$\psi $}
+    \AxiomC{$[\varphi \land \psi]_1 $}
+    \RightLabel{$\land $E}
+    \UnaryInfC{$\varphi $}
+    \AxiomC{$[\varphi \to \lnot \psi]_2$}
+    \RightLabel{$\to $I}
+    \BinaryInfC{$\lnot \psi $}
+    \BinaryInfC{$\bot $}
+    \RightLabel{$\to $I$^2$}
+    \UnaryInfC{$\lnot (\varphi \to \lnot \psi )$}
+    \RightLabel{$\to $I$^1$}
+    \UnaryInfC{$(\varphi \land \psi )\to \lnot (\varphi \to \lnot \psi )$}
 \end{prooftree}
 
 \item[(f)] $\varphi \to (\psi \to (\varphi \land \psi ))$
