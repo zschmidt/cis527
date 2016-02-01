@@ -1,0 +1,146 @@
+\documentclass[10pt]{article}
+
+%these two are needed for tree drawings
+\usepackage{graphicx,qtree}
+
+%this package makes lists more compact
+\usepackage{mdwlist}
+
+%this package is to use the align environment
+\usepackage{amsmath}
+
+%We can get rid of the amsmath package with this definition
+\renewcommand{\implies}{\Rightarrow \ }
+
+%latexsym is needed for \Box
+\usepackage{latexsym}
+
+%This section is needed for the valuation brackets
+\usepackage{tikz}
+\newcommand{\llbracket}{\
+  \begin{tikzpicture}[scale=0.09,baseline=.3em]
+  \draw (1.75,0) -- (0,0) -- (0,4) -- (1.75,4);
+  \draw (1,0) -- (1,4);
+  \end{tikzpicture}
+  \
+}
+\newcommand{\rrbracket}{\
+  \begin{tikzpicture}[scale=0.09,baseline=.3em]
+  \draw (0,4) -- (1.75,4) -- (1.75,0) -- (0,0);
+  \draw (.75,0) -- (.75,4);
+  \end{tikzpicture}
+  \
+}
+
+%This package allows for the natural deduction proofs
+%Can be found here: http://math.ucsd.edu/~sbuss/ResearchWeb/bussproofs/bussproofs.sty
+\usepackage{bussproofs}
+
+%This is me being a jerk about margins
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=10mm,
+ bottom=20mm,
+ }
+
+\begin{document}
+
+%I hate the stock pound sign... so I fiddle with it here
+\title{Assignment \raisebox{.22ex}{\large\#}4 \\
+	CIS 427/527}
+\author{Group 2}
+
+\maketitle
+
+%----------------------BEGIN PROBLEM 1----------------------
+\section*{1}
+
+Complete the proof of soundness of propositional logic (given in val Dalen, Lemma 1.5.1) with the case of $\to _E$.
+
+\section*{Solution}
+
+
+%----------------------BEGIN PROBLEM 2
+\section*{2}
+
+Prove the soundness of the $\lor$ rules ($\lor I$ and $\lor E$).
+
+\section*{Solution}
+
+%----------------------BEGIN PROBLEM 3
+\section*{3}
+
+Do we have $\models (p \to q) \lor (q\to r)$?
+
+\section*{Solution}
+
+
+\begin{tabular}{ c | c | c | c | c || c }    
+  p & q & r & $(p\to q)$ & $(q\to r)$ & $(p\to q)\lor (q\to r)$\\
+  \hline
+  0 & 0 & 0 & 1 & 1 & 1\\
+  0 & 0 & 1 & 1 & 1 & 1\\
+  0 & 1 & 1 & 1 & 0 & 1\\
+  0 & 1 & 1 & 1 & 1 & 1\\
+  1 & 0 & 1 & 0 & 1 & 1\\
+  1 & 0 & 1 & 0 & 1 & 1\\
+  1 & 1 & 1 & 1 & 0 & 1\\
+  1 & 1 & 1 & 1 & 1 & 1\\
+\end{tabular}
+
+%----------------------BEGIN PROBLEM 4
+\section*{4}
+
+Do we have $ (q\to (p\lor (q\to p))) \lor \lnot(p\to q) \models p$?
+
+\section*{Solution}
+
+%----------------------BEGIN PROBLEM 5
+\section*{5}
+
+Assuming the soundness and completeness of natural deduction for propositional logic, suppose that you need to show that $\phi$ is not a semantic consequence of $\phi _1, \phi _2, ..., \phi _n$, but that you are only allowed to base your argument on the use of natural deduction rules. Which judgement would you need to prove in order to guarantee that $\phi _1, \phi _2, ..., \phi _n \not\models \phi$? Do you need completeness and soundness for this to work out?
+
+\section*{Solution}
+
+
+%----------------------BEGIN PROBLEM 6
+\section*{6}
+
+Consider the following axiom based system, called Hilbert system:
+\begin{align*}
+& (\phi \to (\psi \to \phi))\\
+& ((\phi \to (\psi \to \sigma)) \to ((\phi \to \psi ) \to (\phi \to \sigma)))\\
+& ((\lnot \phi \to \lnot \psi ) \to ((\lnot \phi \to \psi ) \to \phi ))
+\end{align*}
+Combined with the Modus Ponens inference rule, which corresponds to the elimination rule of the implication connective.\\\\
+Prove according to this system the judgement $\vdash \phi \to \phi$.
+
+\section*{Solution}
+
+
+%----------------------BEGIN PROBLEM 7
+\section*{7}
+
+Consider classical logic given in the handout ``Natural deduction in sequent form'' in Figure 5. Prove the following judgements:\\
+$\vdash \phi \lor \lnot \phi $ (This is called Law of Excluded Middle).\\
+$((\phi \to \psi ) \to \phi )\to \phi $ (This is called Peirce's Law).\\
+
+\section*{Solution}
+
+%----------------------BEGIN PROBLEM 8
+\section*{8}
+
+Prove the following judgements:\\
+$A\to B \to A$\\
+$(A\to B \to C) \to (A\to B )\to (A\to C)$\\
+$(A \land B \to C )\to(A\to B \to C)$\\
+$(A\to B\to C)\to (A\land B \to C)$\\
+Annotate each proof with lambda-terms.
+
+\section*{Solution}
+
+\end{document}
