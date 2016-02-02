@@ -123,6 +123,14 @@ Prove according to this system the judgement $\vdash \phi \to \phi$.
 
 \section*{Solution}
 
+\begin{prooftree}
+\RightLabel{Let $\psi = \psi \to \varphi$ and $\sigma = \varphi$}
+\AxiomC{$((\phi \to (\psi \to \sigma)) \to ((\phi \to \psi ) \to (\phi \to \sigma)))$}
+\AxiomC{$(\phi \to (\psi \to \phi))$}
+\BinaryInfC{$((\varphi \to (\psi \to \varphi )) \to (\varphi \to \varphi)))$}
+\AxiomC{$(\phi \to (\psi \to \phi))$}
+\BinaryInfC{$\varphi \to \varphi$}
+\end{prooftree}
 
 %----------------------BEGIN PROBLEM 7
 \section*{7}
