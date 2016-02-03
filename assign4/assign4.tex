@@ -153,4 +153,25 @@ Annotate each proof with lambda-terms.
 
 \section*{Solution}
 
+\begin{description*}
+\item[] $A\to B \to A$
+
+$(\lambda x: A.\ \lambda y: B.\ x)$
+
+
+\item[] $(A\to B \to C) \to (A\to B )\to (A\to C)$
+
+$(\lambda x: A\to B\to C.\ \lambda y: A\to B.\ \lambda z: A.\ x\ z\ (y\ z))$
+
+\item[] $(A \land B \to C )\to(A\to B \to C)$
+
+$(\lambda x: A\land B \to C .\ \lambda y: A.\ \lambda z: B.\ x (y*z))$
+
+\item[] $(A\to B\to C)\to (A\land B \to C)$
+
+$(\lambda x: A\to B\to C.\ \lambda y: A\land B.\ x(\text{fst } y)(\text{snd } y))$
+
+
+\end{description*}
+
 \end{document}
