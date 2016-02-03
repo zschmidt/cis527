@@ -141,6 +141,31 @@ $((\phi \to \psi ) \to \phi )\to \phi $ (This is called Peirce's Law).\\
 
 \section*{Solution}
 
+\begin{itemize*}
+\item $\vdash \phi \lor \lnot \phi $
+
+\begin{prooftree}
+  \AxiomC{$[\lnot (\phi \lor \lnot \phi)]^1$}
+  \AxiomC{$[\phi]^2$}
+  \RightLabel{$\lor $I}
+  \UnaryInfC{$\phi \lor \lnot \phi$}
+  \RightLabel{$\to $E}
+  \BinaryInfC{$\bot$}
+  \RightLabel{$\to $I$_2$}
+  \UnaryInfC{$\lnot \phi$}
+  \RightLabel{$\lor $I}
+  \UnaryInfC{$\phi \lor \lnot \phi$}
+  \RightLabel{$\lor $E}
+  \UnaryInfC{$\bot$}
+  \RightLabel{RAA$_1$}
+  \UnaryInfC{$\phi \lor \lnot \phi$}
+\end{prooftree}
+
+\item $((\phi \to \psi ) \to \phi )\to \phi $
+
+\end{itemize*}
+
+
 %----------------------BEGIN PROBLEM 8
 \section*{8}
 
