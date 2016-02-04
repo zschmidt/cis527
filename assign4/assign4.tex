@@ -77,8 +77,8 @@ Then $\gamma'' \models \varphi$ and $\gamma'' \models \varphi \implies \psi$.
 Prove the soundness of the $\lor$ rules ($\lor I$ and $\lor E$).
 
 \section*{Solution}
-($V_i$) \\
-IH: $\overset{D}{\varphi}
+%--($V_i$) \\
+%--IH: $\overset{D}{\varphi}
 
 %----------------------BEGIN PROBLEM 3
 \section*{3}
@@ -149,6 +149,31 @@ $\vdash \phi \lor \lnot \phi $ (This is called Law of Excluded Middle).\\
 $((\phi \to \psi ) \to \phi )\to \phi $ (This is called Peirce's Law).\\
 
 \section*{Solution}
+
+\begin{itemize*}
+\item $\vdash \phi \lor \lnot \phi $
+
+\begin{prooftree}
+  \AxiomC{$[\lnot (\phi \lor \lnot \phi)]^1$}
+  \AxiomC{$[\phi]^2$}
+  \RightLabel{$\lor $I}
+  \UnaryInfC{$\phi \lor \lnot \phi$}
+  \RightLabel{$\to $E}
+  \BinaryInfC{$\bot$}
+  \RightLabel{$\to $I$_2$}
+  \UnaryInfC{$\lnot \phi$}
+  \RightLabel{$\lor $I}
+  \UnaryInfC{$\phi \lor \lnot \phi$}
+  \RightLabel{$\lor $E}
+  \UnaryInfC{$\bot$}
+  \RightLabel{RAA$_1$}
+  \UnaryInfC{$\phi \lor \lnot \phi$}
+\end{prooftree}
+
+\item $((\phi \to \psi ) \to \phi )\to \phi $
+
+\end{itemize*}
+
 
 %----------------------BEGIN PROBLEM 8
 \section*{8}
