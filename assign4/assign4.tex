@@ -62,14 +62,23 @@
 Complete the proof of soundness of propositional logic (given in val Dalen, Lemma 1.5.1) with the case of $\to _E$.
 
 \section*{Solution}
-
-
+IH: $\overset{D}{\varphi}$ and $\overset{D'}{\varphi \implies \psi}$ are derivations. For each $\gamma , \gamma'$ containing the hypothesis of D,D', $\gamma \models \varphi$ and $\gamma' \models \varphi \implies \psi$.
+\begin{align*}
+\gamma'' &\supseteq \gamma \cup \gamma' \\
+\end{align*}
+Then $\gamma'' \models \varphi$ and $\gamma'' \models \varphi \implies \psi$.
+\begin{align*}
+\gamma'' &\models \varphi \land (\varphi \implies \psi) \\ 
+\gamma'' &\models \psi \text{ (Modus ponens)} \\
+\end{align*}
 %----------------------BEGIN PROBLEM 2
 \section*{2}
 
 Prove the soundness of the $\lor$ rules ($\lor I$ and $\lor E$).
 
 \section*{Solution}
+($V_i$) \\
+IH: $\overset{D}{\varphi}
 
 %----------------------BEGIN PROBLEM 3
 \section*{3}
