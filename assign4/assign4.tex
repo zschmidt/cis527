@@ -41,7 +41,7 @@
  \geometry{
  a4paper,
  total={210mm,297mm},
- left=20mm,
+ left=10mm,
  right=20mm,
  top=10mm,
  bottom=20mm,
@@ -59,10 +59,11 @@
 %----------------------BEGIN PROBLEM 1----------------------
 \section*{1}
 
-Complete the proof of soundness of propositional logic (given in val Dalen, Lemma 1.5.1) with the case of $\to _E$.
+Complete the proof of soundness of propositional logic (given in van Dalen, Lemma 1.5.1) with the case of $\to _E$.
 
 \section*{Solution}
-IH: $\overset{D}{\varphi}$ and $\overset{D'}{\varphi \implies \psi}$ are derivations. For each $\gamma , \gamma'$ containing the hypothesis of D,D', $\gamma \models \varphi$ and $\gamma' \models \varphi \implies \psi$.
+Inductive Hypothesis: $\overset{D}{\varphi}$ and $\overset{D'}{\varphi \implies \psi}$ are derivations. For each $\gamma , \gamma'$ containing the hypothesis of D,D', $\gamma \models \varphi$ and $\gamma' \models \varphi \implies \psi$.
+$\gamma'$ contains the hypotheses of  $(\overset{D}{\varphi}, \overset{D'}{\varphi \implies \psi}) \vdash \psi$
 \begin{align*}
 \gamma'' &\supseteq \gamma \cup \gamma' \\
 \end{align*}
@@ -77,8 +78,37 @@ Then $\gamma'' \models \varphi$ and $\gamma'' \models \varphi \implies \psi$.
 Prove the soundness of the $\lor$ rules ($\lor I$ and $\lor E$).
 
 \section*{Solution}
-%--($V_i$) \\
-%--IH: $\overset{D}{\varphi}
+
+($V_I$) \\
+Inductive Hypothesis: $\overset{D}{\varphi}$ is a derivation, let $\gamma$ contain the hypotheses of $D$. Then $\gamma \models \varphi$.
+$\gamma'$ contains the hypotheses of  $\overset{\overset{D}{\varphi}}{\varphi \lor \psi} $
+\begin{align*}
+\gamma' &\supseteq \gamma \\
+\gamma' &\models \varphi \\
+\end{align*}
+If $\varphi_1 = 1$, then $[\varphi \lor \psi]_v = 1$, therefore $\gamma' \models \varphi \lor \psi$. \vspace{20pt}
+
+($V_E$) \\
+Inductive Hypothesis: $\overset{D}{\varphi \lor \psi}$ is a derivation, let $\gamma$ contain the hypotheses of $D$. Then $\gamma \models \varphi \lor \psi$.
+$\gamma'$ contains the hypotheses of  $(\overset{D}{\varphi \lor \psi}, \overset{[\varphi]}{\sigma}, \overset{[\psi]}{\sigma}) \vdash \sigma$
+
+\begin{align*}
+\gamma' &\supseteq \gamma \\
+\gamma' &\models \varphi \lor \psi \\
+\gamma' &\models \varphi \to \sigma \\
+\gamma' &\models \psi \to \sigma \\
+\end{align*}
+For all valuations $v$ which make all formula in $\gamma'$ true,
+ \begin{align*}
+[\varphi \lor \psi]_v &=1 \\
+[\varphi \to \sigma]_v &=1 \\
+[\psi \to \sigma]_v &=1 \\
+\end{align*}
+$[\varphi \lor \psi]_v =1$,  so either $[\varphi]_v=1$ or $[\psi]_v=1$. \vspace{10pt}\\
+Case 1: $[\varphi]_v =1$ \\
+Since $[\varphi]_v =1$ and $[\varphi \to \sigma]_v = 1$, $[\sigma]_v=1$.\vspace{10pt}  \\
+Case 2: $[\psi]_v =1$ \\
+Since $[\psi]_v =1$ and $[\psi \to \sigma]_v = 1$, $[\sigma]_v=1$. \vspace{10pt}\\ In either case,  $\gamma' \models \sigma$.
 
 %----------------------BEGIN PROBLEM 3
 \section*{3}
@@ -116,7 +146,21 @@ If both $p$ and $q$ are false, we have $q\to (p \lor (q\to p)) \lor \lnot (p \to
 Assuming the soundness and completeness of natural deduction for propositional logic, suppose that you need to show that $\phi$ is not a semantic consequence of $\phi _1, \phi _2, ..., \phi _n$, but that you are only allowed to base your argument on the use of natural deduction rules. Which judgement would you need to prove in order to guarantee that $\phi _1, \phi _2, ..., \phi _n \not\models \phi$? Do you need completeness and soundness for this to work out?
 
 \section*{Solution}
-
+You need RAA, completeness, and soundess for this to work. 
+\begin{align*}
+\varphi_1,\varphi_2,...\varphi_n &\models \varphi \\
+&\models (\varphi_1 \land ... \land \varphi_n) \to \varphi \\
+&\vdash (\varphi_1 \land ... \land \varphi_n)\to \varphi \text{ (completeness)}\\
+\end{align*}
+Then construct a derivation:
+\begin{prooftree}
+\AxiomC{$(\varphi_1 \land ... \land \varphi_n) \to \varphi$}
+\UnaryInfC{$D$}
+\UnaryInfC{$\bot$}
+ \RightLabel{RAA}
+\UnaryInfC{$\lnot [(\varphi_1 \land ... \land \varphi_n) \to \varphi]$}
+\end{prooftree}
+Therefore $\varphi_1,\varphi_2,...\varphi_n \not\vdash \varphi$, and by soundess, $\varphi_1,\varphi_2,...\varphi_n \not\models \varphi$.
 
 %----------------------BEGIN PROBLEM 6
 \section*{6}
@@ -133,12 +177,12 @@ Prove according to this system the judgement $\vdash \phi \to \phi$.
 \section*{Solution}
 
 \begin{prooftree}
-\RightLabel{Let $\psi = \psi \to \varphi$ and $\sigma = \varphi$}
+\RightLabel{Let $\psi = \psi \to \phi$ and $\sigma = \phi$}
 \AxiomC{$((\phi \to (\psi \to \sigma)) \to ((\phi \to \psi ) \to (\phi \to \sigma)))$}
 \AxiomC{$(\phi \to (\psi \to \phi))$}
-\BinaryInfC{$((\varphi \to (\psi \to \varphi )) \to (\varphi \to \varphi)))$}
+\BinaryInfC{$(\phi \to (\psi \to \phi )) \to (\phi \to \phi)$}
 \AxiomC{$(\phi \to (\psi \to \phi))$}
-\BinaryInfC{$\varphi \to \varphi$}
+\BinaryInfC{$\phi \to \phi$}
 \end{prooftree}
 
 %----------------------BEGIN PROBLEM 7
@@ -164,15 +208,88 @@ $((\phi \to \psi ) \to \phi )\to \phi $ (This is called Peirce's Law).\\
   \UnaryInfC{$\lnot \phi$}
   \RightLabel{$\lor $I}
   \UnaryInfC{$\phi \lor \lnot \phi$}
-  \RightLabel{$\lor $E}
-  \UnaryInfC{$\bot$}
+  \AxiomC{$[\lnot (\phi \lor \lnot \phi)]^1$}
+  \RightLabel{$\to $E}
+  \BinaryInfC{$\bot$}
   \RightLabel{RAA$_1$}
   \UnaryInfC{$\phi \lor \lnot \phi$}
 \end{prooftree}
 
-\item $((\phi \to \psi ) \to \phi )\to \phi $
+\item $((\phi \to \psi ) \to \phi )\to \phi $\\
+
+Let $LEM$ be the proof described above.
+
+\begin{prooftree}
+\AxiomC{$LEM$}
+\UnaryInfC{$(\phi \to \psi)\to \phi \vdash \phi \lor \lnot \phi$}
+
+  \AxiomC{}
+  \UnaryInfC{$(\phi \to \psi)\to \phi , \phi \vdash \phi$}
+
+  \AxiomC{$\dagger$}
+
+\TrinaryInfC{$(\phi \to \psi)\to \phi \vdash \phi$}
+\UnaryInfC{$\cdot \vdash ((\phi \to \psi)\to \phi)\to \phi$}
+\end{prooftree}
+
+
 
 \end{itemize*}
+
+\begin{description*}
+  \item[] $\dagger$
+
+    Let $\Gamma = (\phi \to \psi)\to \phi$
+
+    \begin{prooftree}
+      \AxiomC{$LEM$}
+      \UnaryInfC{$\Gamma, \lnot \phi \vdash (\phi \to \psi) \lor \lnot (\phi \to \psi)$}
+      \AxiomC{$\ddagger$}
+      \UnaryInfC{$\Gamma, \lnot \phi, (\phi \to \psi) \vdash \phi \land \lnot \psi $}
+      \UnaryInfC{$\Gamma, \lnot \phi, \lnot (\phi \to \psi) \vdash \phi$}
+      \AxiomC{$\Gamma, \lnot \phi, (\phi \to \psi) \vdash \Gamma $}
+      \AxiomC{$\Gamma, \lnot \phi, \phi \to \psi \vdash \phi \to \psi$}
+      \BinaryInfC{$\Gamma, \lnot \phi, (\phi \to \psi) \vdash \phi$}  
+      \TrinaryInfC{$\Gamma, \lnot \phi \vdash \phi$}
+    \end{prooftree}
+
+  \newpage
+
+  \item[] $\ddagger$
+
+  Let $\Gamma = \lnot (\phi \to \psi )$
+
+  \begin{prooftree}
+    \AxiomC{$\Gamma ,\lnot \phi ,\phi \vdash \phi$}
+    \AxiomC{$\Gamma ,\lnot \phi ,\phi \vdash \lnot \phi$}
+    \RightLabel{$\to$E}
+    \BinaryInfC{$\bot$}
+    \RightLabel{EFQ}
+    \UnaryInfC{$\Gamma ,\lnot \phi , \phi \vdash \psi$}
+    \RightLabel{$\to$I$_2$}
+    \UnaryInfC{$\Gamma ,\lnot \phi \vdash \phi \to \psi$}
+    \AxiomC{$\Gamma ,\lnot \phi \vdash \lnot (\phi \to \psi)$}
+    \RightLabel{$\to$E}
+    \BinaryInfC{$\Gamma ,\lnot \phi \vdash \bot$}
+    \RightLabel{RAA$_1$}
+    \UnaryInfC{$\Gamma \vdash \phi$}
+                            \AxiomC{$\Gamma, \psi ,\phi \vdash \phi $}
+                            \AxiomC{$\Gamma, \psi , \phi \vdash \psi$}
+                            \RightLabel{$\to$I}
+                            \BinaryInfC{$\Gamma, \psi \vdash \phi \to \psi$}
+                            \AxiomC{$\Gamma, \psi \vdash \lnot(\phi \to \psi)$}
+                            \RightLabel{$\to$E}
+                            \BinaryInfC{$\Gamma, \psi \vdash \bot$}
+                            \RightLabel{$\to $I}
+                            \UnaryInfC{$\Gamma \vdash \lnot \psi$}  
+    \RightLabel{$\land $I}
+    \BinaryInfC{$\Gamma \vdash \phi \land \lnot \psi $}
+\end{prooftree}
+
+
+
+\end{description*}
+
 
 
 %----------------------BEGIN PROBLEM 8
