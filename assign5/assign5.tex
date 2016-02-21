@@ -1,0 +1,101 @@
+\documentclass[10pt]{article}
+
+%these two are needed for tree drawings
+\usepackage{graphicx,qtree}
+
+%this package makes lists more compact
+\usepackage{mdwlist}
+
+%this package is to use the align environment
+\usepackage{amsmath}
+
+%We can get rid of the amsmath package with this definition
+\renewcommand{\implies}{\Rightarrow \ }
+
+%latexsym is needed for \Box
+\usepackage{latexsym}
+
+%This section is needed for the valuation brackets
+\usepackage{tikz}
+\newcommand{\llbracket}{\
+  \begin{tikzpicture}[scale=0.09,baseline=.3em]
+  \draw (1.75,0) -- (0,0) -- (0,4) -- (1.75,4);
+  \draw (1,0) -- (1,4);
+  \end{tikzpicture}
+  \
+}
+\newcommand{\rrbracket}{\
+  \begin{tikzpicture}[scale=0.09,baseline=.3em]
+  \draw (0,4) -- (1.75,4) -- (1.75,0) -- (0,0);
+  \draw (.75,0) -- (.75,4);
+  \end{tikzpicture}
+  \
+}
+
+%This package allows for the natural deduction proofs
+%Can be found here: http://math.ucsd.edu/~sbuss/ResearchWeb/bussproofs/bussproofs.sty
+\usepackage{bussproofs}
+
+%This is me being a jerk about margins
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=10mm,
+ right=20mm,
+ top=10mm,
+ bottom=20mm,
+ }
+
+\begin{document}
+
+%I hate the stock pound sign... so I fiddle with it here
+\title{Assignment \raisebox{.22ex}{\large\#}5 \\
+	CIS 427/527}
+\author{Group 2}
+
+\maketitle
+
+%----------------------BEGIN PROBLEM 2.2.1----------------------
+\section*{2.2.1}
+Which of the following strings are formulas in predicate logic?
+\section*{Solution}
+\textbf{(a),(b),(f),(g)} are formulas.
+\begin{description*}
+\item[(c)] isn't, as $f(m)$ is a term.
+\item[(d)] isn't, as $B$ is expecting two terms, yet $B(m,x)$ is a formula.
+\item[(e)] isn't, as $B(m)$ doesn't have enough arguments.
+\item[(h)] isn't, as $B(x)$ doesn't have enough arguments.
+\end{description*}
+%----------------------BEGIN PROBLEM 2.5.3
+\section*{2.5.3}
+
+\section*{Solution}
+
+%----------------------BEGIN PROBLEM 2.5.11(a,b,c,e,f) 
+\section*{2.5.11}
+
+\section*{Solution}
+
+%----------------------BEGIN PROBLEM 2.6.1
+\section*{2.6.1}
+
+\section*{Solution}
+
+%----------------------BEGIN PROBLEM 2.6.2
+\section*{2.6.2}
+
+\section*{Solution}
+
+%----------------------BEGIN PROBLEM 2.6.3 
+\section*{2.6.3}
+
+\section*{Solution}
+
+%----------------------BEGIN PROBLEM 2.7.5
+\section*{2.7.5}
+
+\section*{Solution}
+
+
+\end{document}
