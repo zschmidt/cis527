@@ -84,9 +84,22 @@ Which of the following strings are formulas in predicate logic?
 
 %----------------------BEGIN PROBLEM 2.6.2
 \section*{2.6.2}
-
+Consider the sentence
+\[
+\phi = \forall x\ \exists y\ \exists z\ (P(x,y)\land P(z,y) \land (P(x,z)\to P(z,x)))
+\]
+Which of the following models satisfies $\phi$?
+\begin{description*}
+\item[(a)] $P^M = \{ (m,n) | m < n \}$
+\item[(b)] $P^{M'} = \{ (m,2*m) | m \text{ natural number} \}$ 
+\item[(c)] $P^{M''} = \{ (m,n) | m < n + 1\}$
+\end{description*}
 \section*{Solution}
-
+\begin{description*}
+\item[(a)] This model does not satisfy $\phi$, because we either need to force $P(x,z)$ to be false by requiring $z$ to be smaller than $x$ (in which case we can escape the natural numbers), or by having $x<z \land z<x$, which cannot happen.
+\item[(b)] Yes, because the first two properties say $y=2*x$ and $y=2*z$, which means $x=z$ making $P(x,z)$ always false.
+\item[(c)] Yes, let $y=z=x$, then all the properties hold.
+\end{description*}
 %----------------------BEGIN PROBLEM 2.6.3 
 \section*{2.6.3}
 
