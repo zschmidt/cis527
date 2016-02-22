@@ -79,9 +79,28 @@ Which of the following strings are formulas in predicate logic?
 
 %----------------------BEGIN PROBLEM 2.6.1
 \section*{2.6.1}
-
+Consider the formula
+\[
+\phi = \forall x\ \exists y\ Q(g(x,y),g(y,y),z)
+\]
+Find two models $M$ and $M'$ with respective environments $l$ and $l'$ such that $M \models_{l} \phi$ but $M' \not \models_{l} \phi$
 \section*{Solution}
-
+\begin{description*}
+\item $M$
+\item $A = \{a,b\}$
+\item $Q^{M} = \{(a,a,b)\}$
+\item $g^{M}(x,y) = a$ for all input
+\item $z^{M} = c$
+\end{description*}
+Then, $\forall x\ \forall y\ Q(g(x,y),g(y,y),z)=Q(a,a,b)$, which holds, so $M \models \phi$.
+\begin{description*}
+\item $M'$
+\item $A = \{a,b\}$
+\item $Q^{M'} = \{(a,a,c)\}$
+\item $g^{M'} = c$ for all input
+\item $z^{M'} = a$
+\end{description*}
+Then, $\forall x\ \forall y\ Q(g(x,y),g(y,y),z) = Q(c,c,a)$, but $(c,c,a) \not \in Q^{M'}$, so $M' \not \models \phi$.
 %----------------------BEGIN PROBLEM 2.6.2
 \section*{2.6.2}
 Consider the sentence
@@ -113,8 +132,11 @@ Let $P$ be a predicate with two arguments. Find a model $M$ which satisfies $\fo
 
 %----------------------BEGIN PROBLEM 2.7.5
 \section*{2.7.5}
-
-\section*{Solution}
-
+Show $\forall x (P(x) \bigvee Q(x)) \not \models \forall x P(x) \bigvee \forall x Q(x)$. Thus, find a model which satisfies $\forall x (P(x) \bigvee Q(x))$, but not $\forall x P(x) \bigvee \forall x Q(x)$
+\section*{Solution} 
+\begin{itemize*}
+\item Let $A =$ natural numbers, and let $P^{M} = \{ x | x \leq 5 \}$, $Q^{M} = \{ x | x > 5 \}$.
+\end{itemize*}
+Then $\forall x. x \leq 5 \bigvee x > 5 $ holds, but it is not true that $\forall x. x \leq 5 \bigvee \forall x. x > 5 $.
 
 \end{document}
