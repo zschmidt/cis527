@@ -90,14 +90,14 @@ Find two models $M$ and $M'$ with respective environments $l$ and $l'$ such that
 \item $A = \{a,b\}$
 \item $Q^{M} = \{(a,a,b)\}$
 \item $g^{M}(x,y) = a$ for all input
-\item $z^{M} = c$
+\item $z^{M} = b$
 \end{description*}
 Then, $\forall x\ \forall y\ Q(g(x,y),g(y,y),z)=Q(a,a,b)$, which holds, so $M \models \phi$.
 \begin{description*}
 \item $M'$
 \item $A = \{a,b\}$
 \item $Q^{M'} = \{(a,a,c)\}$
-\item $g^{M'} = c$ for all input
+\item $g^{M'}(x,y) = c$ for all input
 \item $z^{M'} = a$
 \end{description*}
 Then, $\forall x\ \forall y\ Q(g(x,y),g(y,y),z) = Q(c,c,a)$, but $(c,c,a) \not \in Q^{M'}$, so $M' \not \models \phi$.
