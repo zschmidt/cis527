@@ -102,8 +102,14 @@ Which of the following models satisfies $\phi$?
 \end{description*}
 %----------------------BEGIN PROBLEM 2.6.3 
 \section*{2.6.3}
+Let $P$ be a predicate with two arguments. Find a model $M$ which satisfies $\forall x\ \lnot P(x,x)$. Find also a model $M'$ such that $M'\not \models \forall x\ \lnot P(x,x)$.
 
 \section*{Solution}
+
+\begin{itemize*}
+\item Let $P^{M} = \{ (x,y) | x < y\}$, then we have $\forall x\ \lnot P(x,x)$.
+\item Let $P^{M'} = \{ (x,y) | x = y\}$, then we have $M'\not \models \forall x\ \lnot P(x,x)$ as desired.
+\end{itemize*}
 
 %----------------------BEGIN PROBLEM 2.7.5
 \section*{2.7.5}
