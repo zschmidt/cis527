@@ -69,13 +69,24 @@ Which of the following strings are formulas in predicate logic?
 \end{description*}
 %----------------------BEGIN PROBLEM 2.5.3
 \section*{2.5.3}
-
+Provide proofs for the following sequents:
 \section*{Solution}
-
+\begin{description*}
+\item[(a)] $\forall x P(x) \vdash \forall y P(y)$
+\item[(b)] $\forall x (P(x) \to Q(x)) \vdash (\forall x \lnot Q(x)) \to (\forall x \lnot P(x))$
+\item[(c)] $\forall x (P(x) \to \lnot Q(x)) \vdash \lnot (\exists x (P(x) \land Q(x)))$
+\end{description*}
 %----------------------BEGIN PROBLEM 2.5.11(a,b,c,e,f) 
 \section*{2.5.11}
-
+Prove the following sequents in predicate logic:
 \section*{Solution}
+\begin{description*}
+\item[(a)] $\forall x \forall y \forall z (S(x,y) \land S(y,z)\to S(x,z)), \forall x \lnot S(x,x) \vdash \forall x \forall y (S(x,y)\to \lnot S(y,x))$
+\item[(b)] $\forall x (P(x) \lor Q(x)), \exists x\lnot Q(x), \forall x(R(x) \to \lnot P(x)) \vdash \exists x \lnot R(x)$
+\item[(c)] $\forall x (P(x) \to (Q(x)\lor R(x))), \lnot \exists x(P(x)\land R(x))\vdash \forall xP(x)\to Q(x)$
+\item[(e)] $ (\exists x P(x))\to \forall y P(y)\vdash \exists x \forall y ((P(x)\to P(y))\land (P(y)\land P(x))) $
+\item[(f)] $ \exists x (P(x)\land Q(x)), \forall y(P(y)\to R(y)) \vdash \exists x R(x) \land Q(x) $
+\end{description*}
 
 %----------------------BEGIN PROBLEM 2.6.1
 \section*{2.6.1}
