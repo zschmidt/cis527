@@ -73,8 +73,62 @@ Provide proofs for the following sequents:
 \section*{Solution}
 \begin{description*}
 \item[(a)] $\forall x P(x) \vdash \forall y P(y)$
+
+\begin{prooftree}
+  \AxiomC{$\forall x P(x)$}
+  \UnaryInfC{$P(x)$}
+  \UnaryInfC{$\forall y P(y)$}
+\end{prooftree}
+
 \item[(b)] $\forall x (P(x) \to Q(x)) \vdash (\forall x \lnot Q(x)) \to (\forall x \lnot P(x))$
+
+
+\begin{prooftree}
+\AxiomC{$\forall x (P(x) \to Q(x))$}
+\RightLabel{$\forall$E}
+\UnaryInfC{$P(x_0) \to Q(x_0)$}
+\AxiomC{$[P(x)]^1$}
+\RightLabel{$\to$E}
+\BinaryInfC{$Q(x_0)$}
+                            \AxiomC{$[\forall x \lnot Q(x)]^2$}
+                            \RightLabel{$\forall $E}
+                            \UnaryInfC{$\lnot Q(x)$}
+  \RightLabel{$\to$E}
+  \BinaryInfC{$\bot$}
+  \RightLabel{$\to$ I$^1$}
+  \UnaryInfC{$\lnot P(x)$}
+  \RightLabel{$\forall$ I}
+  \UnaryInfC{$\forall x \lnot P(x)$}
+  \RightLabel{$\to$ I$^2$}
+  \UnaryInfC{$(\forall x \lnot Q(x)) \to (\forall x \lnot P(x))$}
+\end{prooftree}
+
 \item[(c)] $\forall x (P(x) \to \lnot Q(x)) \vdash \lnot (\exists x (P(x) \land Q(x)))$
+
+\begin{prooftree}
+\AxiomC{$\forall x (P(x) \to \lnot Q(x))$}
+\RightLabel{$\forall $E}
+\UnaryInfC{$P(x_0) \to \lnot Q(x_0)$}
+          \AxiomC{$[\exists x (P(x) \land Q(x))]^1$}
+          \AxiomC{$[P(x) \land Q(x)]^2$}
+          \UnaryInfC{$P(x)$}
+          \UnaryInfC{$P(x_0)$}
+          \RightLabel{$\exists$E$^2$}
+          \BinaryInfC{$P(x_0)$}
+  \RightLabel{$\to$E}
+  \BinaryInfC{$\lnot Q(x_0)$}
+                          \AxiomC{$[\exists x (P(x) \land Q(x))]^1$}
+                          \AxiomC{$[P(x) \land Q(x)]^3$}
+                          \UnaryInfC{$Q(x)$}
+                          \UnaryInfC{$Q(x_0)$}
+                          \RightLabel{$\exists$E$^3$}
+                          \BinaryInfC{$Q(x_0)$}
+  \RightLabel{$\to$E}
+  \BinaryInfC{$\bot$}
+  \RightLabel{$\to$I$^1$}
+  \UnaryInfC{$\lnot (\exists x (P(x) \land Q(x)))$}
+\end{prooftree}
+
 \end{description*}
 %----------------------BEGIN PROBLEM 2.5.11(a,b,c,e,f) 
 \section*{2.5.11}
