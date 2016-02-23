@@ -136,8 +136,113 @@ Prove the following sequents in predicate logic:
 \section*{Solution}
 \begin{description*}
 \item[(a)] $\forall x \forall y \forall z (S(x,y) \land S(y,z)\to S(x,z)), \forall x \lnot S(x,x) \vdash \forall x \forall y (S(x,y)\to \lnot S(y,x))$
+
+\begin{prooftree}
+
+\AxiomC{$\forall x \lnot S(x,x)$}
+\RightLabel{$\forall$E}
+\UnaryInfC{$\lnot S(x_0,x_0)$}
+        \AxiomC{$\forall x \forall y \forall z (S(x,y) \land S(y,z)\to S(x,z))$}
+        \RightLabel{$\forall$E}
+        \UnaryInfC{$S(x_0,y_0) \land S(y_0,x_0)\to S(x_0,x_0)$}
+                \AxiomC{$[S(x,y)]^1$}
+                \RightLabel{$\forall$I}
+                \UnaryInfC{$\forall x \forall y S(x,y)$}
+                \RightLabel{$\forall$E}
+                \UnaryInfC{$S(x_0,y_0)$}
+                          \AxiomC{$[S(y,x)]^2$}
+                          \RightLabel{$\forall$I}
+                          \UnaryInfC{$\forall y \forall x S(y,x)$}
+                          \RightLabel{$\forall$E}
+                          \UnaryInfC{$S(y_0,x_0)$}
+                \RightLabel{$\to$E}
+                \BinaryInfC{$S(x_0,y_0)\land S(y_0,x_0)$}
+        \RightLabel{$\to$E}
+        \BinaryInfC{$S(x_0,x_0)$}
+\RightLabel{$\to$E}
+\BinaryInfC{$\bot$}
+\RightLabel{$\to$I$^1$}
+\UnaryInfC{$S(x,y) \to \lnot S(y,x)$}
+\RightLabel{$\forall$I}
+\UnaryInfC{$\forall x \forall y (S(x,y) \to \lnot S(y,x))$}
+\end{prooftree}
+
 \item[(b)] $\forall x (P(x) \lor Q(x)), \exists x\lnot Q(x), \forall x(R(x) \to \lnot P(x)) \vdash \exists x \lnot R(x)$
+
+\begin{prooftree}
+\AxiomC{$\forall x(R(x) \to \lnot P(x))$}
+\RightLabel{$\forall$E}
+\UnaryInfC{$R(x_0) \to \lnot P(x_0)$}
+    \AxiomC{$[R(x_0)]^1$}
+\RightLabel{$\to$E}
+\BinaryInfC{$\lnot P(x_0)$}
+              \AxiomC{$\exists x\lnot Q(x)$}
+                  \AxiomC{$[\lnot Q(x)]^2$}
+                  \RightLabel{$\forall$I}
+                  \UnaryInfC{$\forall x \lnot Q(x)$}
+                  \RightLabel{$\forall$E}
+                  \UnaryInfC{$\lnot Q(x_0)$}
+                \RightLabel{$\exists$E$^2$}
+                \BinaryInfC{$\lnot Q(x_0)$}
+                                        \AxiomC{$\forall x (P(x) \lor Q(x))$}
+                                        \RightLabel{$\forall$E}
+                                        \UnaryInfC{$P(x_0) \lor Q(x_0)$}
+                    \RightLabel{$\lor$E}
+                    \BinaryInfC{$P(x_0)$}
+      \RightLabel{$\to$E}
+      \BinaryInfC{$\bot$}
+      \RightLabel{$\to$I$^1$}
+      \UnaryInfC{$\lnot R(x_0)$}
+      \RightLabel{$\exists$I}
+      \UnaryInfC{$\exists x \lnot R(x)$}
+
+\end{prooftree}
+
+
 \item[(c)] $\forall x (P(x) \to (Q(x)\lor R(x))), \lnot \exists x(P(x)\land R(x))\vdash \forall xP(x)\to Q(x)$
+
+\begin{prooftree}
+
+\AxiomC{$[\lnot Q(x)]^2$}
+\RightLabel{$\forall$I}
+\UnaryInfC{$\forall x \lnot Q(x)$}
+\RightLabel{$\forall$E}
+\UnaryInfC{$\lnot Q(x_0)$}
+    \AxiomC{$\forall x (P(x) \to (Q(x)\lor R(x)))$}
+    \RightLabel{$\forall$E}
+    \UnaryInfC{$P(x_0) \to (Q(x_0)\lor R(x_0))$}
+            \AxiomC{$[P(x)]^1$}
+            \RightLabel{$\forall$I}
+            \UnaryInfC{$\forall x P(x)$}
+            \RightLabel{$\forall$E}
+            \UnaryInfC{$P(x_0)$}
+      \RightLabel{$\to$E}
+      \BinaryInfC{$Q(x_0)\lor R(x_0)$}
+  \RightLabel{$\lor$E}
+  \BinaryInfC{$R(x_0)$}
+                    \AxiomC{$[P(x)]^1$}
+                    \RightLabel{$\forall$I}
+                    \UnaryInfC{$\forall x P(x)$}
+                    \RightLabel{$\forall $E}
+                    \UnaryInfC{$P(x_0)$}
+        \RightLabel{$\land$I}
+        \BinaryInfC{$P(x_0)\land R(x_0)$}
+                                \AxiomC{$\lnot \exists x(P(x)\land R(x))$}
+                                \UnaryInfC{$\forall x \lnot (P(x)\land R(x))$}
+                                \RightLabel{$\forall$E}
+                                \UnaryInfC{$\lnot (P(x_0)\land R(x_0))$}
+                                \UnaryInfC{$(P(x_0)\land R(x_0))\to \bot$}
+              \RightLabel{$\to $E}
+              \BinaryInfC{$\bot$}
+              \RightLabel{RAA$^2$}
+              \UnaryInfC{$Q(x)$}
+              \RightLabel{$\to$I$^1$}
+              \UnaryInfC{$P(x)\to Q(x)$}
+              \RightLabel{$\forall$I}
+              \UnaryInfC{$\forall x P(x)\to Q(x)$}
+
+\end{prooftree}
+
 \item[(e)] $ (\exists x P(x))\to \forall y P(y)\vdash \exists x \forall y ((P(x)\to P(y))\land (P(y)\land P(x))) $
 \item[(f)] $ \exists x (P(x)\land Q(x)), \forall y(P(y)\to R(y)) \vdash \exists x R(x) \land Q(x) $
 \end{description*}
