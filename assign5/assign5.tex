@@ -245,6 +245,41 @@ Prove the following sequents in predicate logic:
 
 \item[(e)] $ (\exists x P(x))\to \forall y P(y)\vdash \exists x \forall y ((P(x)\to P(y))\land (P(y)\land P(x))) $
 \item[(f)] $ \exists x (P(x)\land Q(x)), \forall y(P(y)\to R(y)) \vdash \exists x R(x) \land Q(x) $
+
+\begin{prooftree}
+\AxiomC{$\forall y(P(y)\to R(y))$}
+\RightLabel{$\forall$E}
+\UnaryInfC{$P(x_0)\to R(x_0)$}
+                  \AxiomC{$[P(x)\land Q(x)]^2$}
+                  \RightLabel{$\land$E}
+                  \UnaryInfC{$P(x)$}
+                  \RightLabel{$\forall$I}
+                  \UnaryInfC{$\forall x P(x)$}
+                  \RightLabel{$\forall $E}
+                  \UnaryInfC{$P(x_0)$}
+          \AxiomC{$\exists x (P(x)\land Q(x))$}
+          \RightLabel{$\exists$E$^2$}
+          \BinaryInfC{$P(x_0)$}
+    \RightLabel{$\to$E}
+    \BinaryInfC{$R(x_0)$}
+                            \AxiomC{$[P(x)\land Q(x)]^1$}
+                            \RightLabel{$\land$E}
+                            \UnaryInfC{$Q(x)$}
+                            \RightLabel{$\forall$I}
+                            \UnaryInfC{$\forall x Q(x)$}
+                            \RightLabel{$\forall $E}
+                            \UnaryInfC{$Q(x_0)$}
+                      \AxiomC{$\exists x (P(x)\land Q(x))$}
+                      \RightLabel{$\exists$E$^1$}
+                      \BinaryInfC{$Q(x_0)$}
+        \RightLabel{$\land$I}
+        \BinaryInfC{$R(x_0)\land Q(x_0)$}
+        \RightLabel{$\exists$I}
+        \UnaryInfC{$\exists x R(x) \land Q(x) $}
+
+
+\end{prooftree}
+
 \end{description*}
 
 %----------------------BEGIN PROBLEM 2.6.1
