@@ -71,22 +71,21 @@ Prove the following using resolution:
 %----------------------BEGIN PROBLEM 2 
 \section*{2}
 Which of the following sets are inconsistent?
+\begin{description*}
+\item[(a)] $\{ \{ p1, p2, p3\}, \{ p1, \lnot p3\}, \{ \lnot p1, \lnot p2 \} \}$
+\item[(b)] $\{ \{ p1, \lnot p2, p3\}, \{ p1, \lnot p3 \}, \{ p1, p2 \} \}$
+\end{description*}
+
 \section*{Solution}
 Neither set is inconsistent -- the first will always have either a set containing $p1$, or a set containing $\lnot p2$, and the second will always have a set with at least $p1$.
-%----------------------BEGIN PROBLEM 3
-\section*{3}
-Convert the following farmulae to $Prenex normal form$:
-\section*{Solution}
-
-%----------------------BEGIN PROBLEM 4
-\section*{4}
-Convert the following to $Skolem normal form$ and then write the result as a set of clauses:
-\section*{Solution}
 
 %----------------------BEGIN PROBLEM 5
 \section*{5}
 For each of the following set of clauses $S$, write down the Herbrand domain $H$, the Herbrand base $HB$, and two interpretations, one that satisfies $S$ and one that does not.
-
+\begin{description*}
+\item[(a)] $S = \{ \{ A(x), \lnot B(y,x) \}, \{ \lnot A(y), C(c) \} \}$
+\item[(b)] $S = \{ \{ A(f(x)), \lnot B(y,x)\}, \{ \lnot A(c),C(x) \} \}$
+\end{description*}
 \section*{Solution}
 
 
@@ -95,22 +94,11 @@ For each of the following set of clauses $S$, write down the Herbrand domain $H$
 Show, using Herbrand interpretations, that the following set of clauses is unsatisfiable.
 
 \section*{Solution} 
+\begin{description*}
+\item[(a)] $S = \{ \{ A(x), \lnot B(x,a) \}, \{ A(a), B(y,a) \}, \{ \lnot A(y) \} \}$
+\item[(b)] $S = \{ \{ A(x)\}, \{ \lnot A(x), B(f(x)) \}, \{ \lnot B(f(a)) \} \}$
+\item[(c)] $S = \{ \{ A(x) \}, \{ \lnot A(y) \} \}$
+\end{description*}
 
-%----------------------BEGIN PROBLEM 7
-\section*{7}
-Do exerciese 29 from Paulson's notes.
-\section*{Solution} 
-
-%----------------------BEGIN PROBLEM 8
-\section*{8}
-Prove the following using resolution:
-
-\section*{Solution} 
-
-%----------------------BEGIN PROBLEM 9
-\section*{9}
-Do exercise 36 from Paulson's notes.
-
-\section*{Solution} 
 
 \end{document}
