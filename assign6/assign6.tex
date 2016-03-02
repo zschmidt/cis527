@@ -1,0 +1,116 @@
+\documentclass[10pt]{article}
+
+%these two are needed for tree drawings
+\usepackage{graphicx,qtree}
+
+%this package makes lists more compact
+\usepackage{mdwlist}
+
+%this package is to use the align environment
+\usepackage{amsmath}
+
+%We can get rid of the amsmath package with this definition
+\renewcommand{\implies}{\Rightarrow \ }
+
+%latexsym is needed for \Box
+\usepackage{latexsym}
+
+%This section is needed for the valuation brackets
+\usepackage{tikz}
+\newcommand{\llbracket}{\
+  \begin{tikzpicture}[scale=0.09,baseline=.3em]
+  \draw (1.75,0) -- (0,0) -- (0,4) -- (1.75,4);
+  \draw (1,0) -- (1,4);
+  \end{tikzpicture}
+  \
+}
+\newcommand{\rrbracket}{\
+  \begin{tikzpicture}[scale=0.09,baseline=.3em]
+  \draw (0,4) -- (1.75,4) -- (1.75,0) -- (0,0);
+  \draw (.75,0) -- (.75,4);
+  \end{tikzpicture}
+  \
+}
+
+%This package allows for the natural deduction proofs
+%Can be found here: http://math.ucsd.edu/~sbuss/ResearchWeb/bussproofs/bussproofs.sty
+\usepackage{bussproofs}
+
+%This is me being a jerk about margins
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=10mm,
+ right=20mm,
+ top=10mm,
+ bottom=20mm,
+ }
+
+\begin{document}
+
+%I hate the stock pound sign... so I fiddle with it here
+\title{Assignment \raisebox{.22ex}{\large\#}6 \\
+	CIS 427/527}
+\author{Group 2}
+
+\maketitle
+
+%----------------------BEGIN PROBLEM 1----------------------
+\section*{1}
+Prove the following using resolution:
+
+\begin{description*}
+\item[(a)] $(A\to B)\land (B\to C)\land \lnot(A\to C)\models \bot$
+\item[(b)] $(A\lor B\lor C)\land (\lnot B\lor D)\land (\land A\lor D)\land (\lnot C \lor D) \models D$
+\item[(c)] $A\to B, B\to C, D\to C, C\lor D \models \lnot A \lor C$
+\end{description*}
+
+\section*{Solution}
+
+%----------------------BEGIN PROBLEM 2 
+\section*{2}
+Which of the following sets are inconsistent?
+\section*{Solution}
+Neither set is inconsistent -- the first will always have either a set containing $p1$, or a set containing $\lnot p2$, and the second will always have a set with at least $p1$.
+%----------------------BEGIN PROBLEM 3
+\section*{3}
+Convert the following farmulae to $Prenex normal form$:
+\section*{Solution}
+
+%----------------------BEGIN PROBLEM 4
+\section*{4}
+Convert the following to $Skolem normal form$ and then write the result as a set of clauses:
+\section*{Solution}
+
+%----------------------BEGIN PROBLEM 5
+\section*{5}
+For each of the following set of clauses $S$, write down the Herbrand domain $H$, the Herbrand base $HB$, and two interpretations, one that satisfies $S$ and one that does not.
+
+\section*{Solution}
+
+
+%----------------------BEGIN PROBLEM 6
+\section*{6}
+Show, using Herbrand interpretations, that the following set of clauses is unsatisfiable.
+
+\section*{Solution} 
+
+%----------------------BEGIN PROBLEM 7
+\section*{7}
+Do exerciese 29 from Paulson's notes.
+\section*{Solution} 
+
+%----------------------BEGIN PROBLEM 8
+\section*{8}
+Prove the following using resolution:
+
+\section*{Solution} 
+
+%----------------------BEGIN PROBLEM 9
+\section*{9}
+Do exercise 36 from Paulson's notes.
+
+\section*{Solution} 
+
+\end{document}
