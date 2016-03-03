@@ -62,11 +62,66 @@ Prove the following using resolution:
 
 \begin{description*}
 \item[(a)] $(A\to B)\land (B\to C)\land \lnot(A\to C)\models \bot$
-\item[(b)] $(A\lor B\lor C)\land (\lnot B\lor D)\land (\land A\lor D)\land (\lnot C \lor D) \models D$
+\item[(b)] $(A\lor B\lor C)\land (\lnot B\lor D)\land (\lnot A\lor D)\land (\lnot C \lor D) \models D$
 \item[(c)] $A\to B, B\to C, D\to C, C\lor D \models \lnot A \lor C$
 \end{description*}
 
 \section*{Solution}
+\begin{description*}
+\item[(a)] $(A\to B)\land (B\to C)\land \lnot(A\to C)\models \bot$
+
+\begin{description*}
+\item[(1)] Convert to CNF: $\{ \{ \lnot A, B \},\{ \lnot B, C \},\{A\}, \{ \lnot C \} \}$
+\item[(2)] Perform resolution:
+
+\begin{prooftree}
+\AxiomC{$\{ \lnot A, B \}$}
+\AxiomC{$\{ A \}$}
+\BinaryInfC{$\{ B\}$}
+  \AxiomC{$\{ \lnot B, C \}$}
+  \BinaryInfC{$\{ C \}$}
+  \AxiomC{$\{ \lnot C \}$}
+  \BinaryInfC{$\{ \}$}
+\end{prooftree}
+\end{description*}
+
+
+\item[(b)] $(A\lor B\lor C)\land (\lnot B\lor D)\land (\lnot A\lor D)\land (\lnot C \lor D) \models D$
+
+\begin{description*}
+\item[(1)] Convert to CNF: $\{ \{ A, B, C \},\{ \lnot B, D \},\{ \lnot A, D\}, \{ \lnot C, D \} \{ \lnot D \} \}$
+\item[(2)] Perform resolution:
+
+\begin{prooftree}
+\AxiomC{$\{ A, B, C \}$}
+\AxiomC{$\{ \lnot B, D \}$}
+\BinaryInfC{$\{ A, C, D\}$}
+  \AxiomC{$\{ \lnot A, D \}$}
+  \BinaryInfC{$\{ C, D \}$}
+  \AxiomC{$\{ \lnot C, D \}$}
+  \BinaryInfC{$\{ D \}$}
+  \AxiomC{$\{ \lnot D \}$}
+  \BinaryInfC{$\{ \}$}
+\end{prooftree}
+\end{description*}
+
+
+\item[(c)] $A\to B, B\to C, D\to C, C\lor D \models \lnot A \lor C$
+
+\begin{description*}
+\item[(1)] Convert to CNF: $\{ \{ \lnot A, B \},\{ \lnot B, C \},\{ \lnot D, C\}, \{ C, D\}, \{ A \}, \{ \lnot C \} \}$
+\item[(2)] Perform resolution:
+
+\begin{prooftree}
+\AxiomC{$\{ \lnot D, C \}$}
+\AxiomC{$\{ C, D \}$}
+\BinaryInfC{$\{ C\}$}
+  \AxiomC{$\{ \lnot C \}$}
+  \BinaryInfC{$\{ \}$}
+\end{prooftree}
+\end{description*}
+
+\end{description*}
 
 %----------------------BEGIN PROBLEM 2 
 \section*{2}
@@ -77,7 +132,7 @@ Which of the following sets are inconsistent?
 \end{description*}
 
 \section*{Solution}
-Neither set is inconsistent -- the first will always have either a set containing $p1$, or a set containing $\lnot p2$, and the second will always have a set with at least $p1$.
+Neither set is inconsistent -- the first can be satisfied by having both $p1$ and $\lnot p2$ be true (since a logic is consistent iff it is satisfiable), and the second can be satisfied by simply having $p1$ be true.
 
 %----------------------BEGIN PROBLEM 5
 \section*{5}
