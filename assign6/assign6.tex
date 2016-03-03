@@ -62,13 +62,6 @@ Prove the following using resolution:
 
 \begin{description*}
 \item[(a)] $(A\to B)\land (B\to C)\land \lnot(A\to C)\models \bot$
-\item[(b)] $(A\lor B\lor C)\land (\lnot B\lor D)\land (\lnot A\lor D)\land (\lnot C \lor D) \models D$
-\item[(c)] $A\to B, B\to C, D\to C, C\lor D \models \lnot A \lor C$
-\end{description*}
-
-\section*{Solution}
-\begin{description*}
-\item[(a)] $(A\to B)\land (B\to C)\land \lnot(A\to C)\models \bot$
 
 \begin{description*}
 \item[(1)] Convert to CNF: $\{ \{ \lnot A, B \},\{ \lnot B, C \},\{A\}, \{ \lnot C \} \}$
@@ -137,11 +130,24 @@ Neither set is inconsistent -- the first can be satisfied by having both $p1$ an
 %----------------------BEGIN PROBLEM 5
 \section*{5}
 For each of the following set of clauses $S$, write down the Herbrand domain $H$, the Herbrand base $HB$, and two interpretations, one that satisfies $S$ and one that does not.
+
 \begin{description*}
 \item[(a)] $S = \{ \{ A(x), \lnot B(y,x) \}, \{ \lnot A(y), C(c) \} \}$
+\begin{align*}
+H &= \{ a \} \\
+HB &= \{ A(a), B(a,a), C(a) \} \\
+T&: \{ A(a), C(a) \} \\
+F&: \{ A(a) \}
+\end{align*}
 \item[(b)] $S = \{ \{ A(f(x)), \lnot B(y,x)\}, \{ \lnot A(c),C(x) \} \}$
+\begin{align*}
+H &= \{ a, f(a), f(f(a)), ... \} \\
+HB &= \{ A(a), B(a,a), C(a), A(f(a)), B(f(a), f(a)), C(f(a)), ... \} \\
+T&: \{ A(a), C(a) \} \\
+F&: \{ A(a) \}
+\end{align*}
 \end{description*}
-\section*{Solution}
+
 
 
 %----------------------BEGIN PROBLEM 6
@@ -151,8 +157,26 @@ Show, using Herbrand interpretations, that the following set of clauses is unsat
 \section*{Solution} 
 \begin{description*}
 \item[(a)] $S = \{ \{ A(x), \lnot B(x,a) \}, \{ A(a), B(y,a) \}, \{ \lnot A(y) \} \}$
+\begin{align*}
+H &= \{ a \} \\
+HB &= \{ A(a), B(a,a) \}
+\end{align*}
+
+Since all the interpretations are $\{ A(a), B(a,a) \}, \{ A(a) \}, \{ B(a,a) \}$, or $\emptyset$, $S$ is not satisfiable. \\
+
 \item[(b)] $S = \{ \{ A(x)\}, \{ \lnot A(x), B(f(x)) \}, \{ \lnot B(f(a)) \} \}$
+\begin{align*}
+H &= \{ a, f(a), f(f(a)), ... \} \\
+HB &= \{ A(a), B(a), A(f(a)), B(f(a), f(a)), ... \}
+\end{align*}
+Since all the interpretations are $\{ A(a), B(a) \}, \{ A(a) \}, \{ B(a) \}$, or $\emptyset$, $S$ is not satisfiable. \\
+
 \item[(c)] $S = \{ \{ A(x) \}, \{ \lnot A(y) \} \}$
+\begin{align*}
+H &= \{ a \} \\
+HB &= \{ A(a) \}
+\end{align*}
+Since all the interpretations are $\{ A(a) \}$ or $\emptyset$, $S$ is not satisfiable. 
 \end{description*}
 
 
